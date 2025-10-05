@@ -33,6 +33,12 @@ There should be such lead capture elements:
 * Telegram channel: https://t.me/smartzavr
 * Email: Smartzavr@gmail.com
 
+## Business information
+
+* 772840023988 ИНН
+* 325774600476650 ОГРНИП
+* ИП  «Колчанова Анна Владимировна»
+
 ## Project Files
 
 For detailed information, see:
