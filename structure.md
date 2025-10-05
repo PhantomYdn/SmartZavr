@@ -1,3 +1,9 @@
+---
+id: structure
+aliases: []
+tags: []
+---
+
 # Site Structure - SmartZavr.ru
 
 ## Information Architecture

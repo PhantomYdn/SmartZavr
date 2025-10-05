@@ -1,3 +1,9 @@
+---
+id: seo
+aliases: []
+tags: []
+---
+
 # SEO Strategy - SmartZavr.ru
 
 ## Target Market
@@ -146,7 +152,7 @@
   "url": "https://smartzavr.ru",
   "logo": "https://smartzavr.ru/logo.png",
   "description": "Онлайн-репетитор по математике и логике для школьников",
-  "telephone": "+79853110213",
+  "telephone": "+79959191301",
   "email": "Smartzavr@gmail.com",
   "sameAs": [
     "https://t.me/smartzavr",
@@ -205,7 +211,7 @@
   "image": "https://smartzavr.ru/logo.png",
   "@id": "https://smartzavr.ru",
   "url": "https://smartzavr.ru",
-  "telephone": "+79853110213",
+  "telephone": "+79959191301",
   "priceRange": "2500-5000 RUB",
   "address": {
     "@type": "PostalAddress",

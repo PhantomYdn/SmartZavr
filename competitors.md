@@ -1,3 +1,9 @@
+---
+id: competitors
+aliases: []
+tags: []
+---
+
 # Competitor Analysis - Russian Math Tutoring Market
 
 ## Overview
@@ -207,7 +213,7 @@ The Russian online math tutoring market is mature and competitive, dominated by 
 
 **Must-Have Elements**:
 - Free consultation/trial lesson
-- Phone: +79853110213 (prominent)
+- Phone: +79959191301
 - Telegram: @AVmathematics
 - Email: Smartzavr@gmail.com
 - Telegram channel: @smartzavr
