@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Математика и логика онлайн с опытным репетитором. Индивидуальные и групповые занятия для школьников 5-11 класс. Подготовка к ОГЭ и ЕГЭ. Первый урок бесплатно! ⚡">
+    <meta name="keywords" content="репетитор по математике, математика онлайн, подготовка к ОГЭ, подготовка к ЕГЭ, индивидуальные занятия математика, репетитор онлайн">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="УмноЗавр — Репетитор по математике онлайн">
+    <meta property="og:description" content="Индивидуальные занятия по математике и логике для школьников. Первый урок бесплатно!">
+    <meta property="og:image" content="https://smartzavr.ru/assets/og-image.jpg">
+    <meta property="og:url" content="https://smartzavr.ru">
+    <meta property="og:type" content="website">
+
+    <title>Репетитор по математике онлайн — УмноЗавр | Индивидуальные занятия от 2500₽</title>
+
+    <link rel="canonical" href="https://smartzavr.ru/">
+    <link rel="icon" href="./assets/favicon.ico">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'smart-green': '#7DA54E',
+                        'smart-teal': '#1A4D4D',
+                        'smart-orange': '#FF9F1C',
+                        'smart-cream': '#F5E6D3',
+                        'smart-yellow': '#FFD93D',
+                        'smart-blue': '#4A90E2',
+                    },
+                    fontFamily: {
+                        'heading': ['Montserrat', 'sans-serif'],
+                        'body': ['Open Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+
+    <!-- Header / Navigation -->
+    <header id="header" class="fixed top-0 left-0 right-0 bg-white shadow-md z-50 transition-all">
+        <nav class="container mx-auto px-4 py-4 flex items-center justify-between max-w-6xl">
+            <!-- Logo -->
+            <a href="#hero" class="flex items-center space-x-2">
+                <img src="./assets/logo.png" alt="УмноЗавр логотип" class="h-12 w-auto">
+            </a>
+
+            <!-- Desktop Menu -->
+            <ul class="hidden md:flex space-x-8 text-base font-medium">
+                <li><a href="#about" class="hover:text-smart-green transition">О нас</a></li>
+                <li><a href="#pricing" class="hover:text-smart-green transition">Цены</a></li>
+                <li><a href="#testimonials" class="hover:text-smart-green transition">Отзывы</a></li>
+                <li><a href="#contact" class="hover:text-smart-green transition">Контакты</a></li>
+            </ul>
+
+            <!-- Phone & CTA -->
+            <div class="hidden md:flex items-center space-x-4">
+                <a href="tel:+79959191301" class="text-smart-teal font-semibold hover:text-smart-green transition">
+                    +7 995 919-13-01
+                </a>
+                <a href="#contact" class="bg-smart-orange text-white px-6 py-2 rounded-lg font-semibold hover:bg-opacity-90 transition shadow-md">
+                    Бесплатный урок
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-2xl focus:outline-none">
+                <span>☰</span>
+            </button>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <ul class="px-4 py-4 space-y-3">
+                <li><a href="#about" class="block py-2 hover:text-smart-green">О нас</a></li>
+                <li><a href="#pricing" class="block py-2 hover:text-smart-green">Цены</a></li>
+                <li><a href="#testimonials" class="block py-2 hover:text-smart-green">Отзывы</a></li>
+                <li><a href="#contact" class="block py-2 hover:text-smart-green">Контакты</a></li>
+                <li><a href="tel:+79959191301" class="block py-2 text-smart-teal font-semibold">+7 995 919-13-01</a></li>
+                <li><a href="#contact" class="block bg-smart-orange text-white px-6 py-3 rounded-lg font-semibold text-center">Бесплатный урок</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="pt-24 pb-16 md:pt-32 md:pb-24 bg-gradient-to-br from-smart-cream to-white">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+                <!-- Text Content -->
+                <div class="flex-1 text-center md:text-left">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-smart-teal mb-4 leading-tight">
+                        Математика и логика с УмноЗавром
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-700 mb-6 leading-relaxed">
+                        Помогаем школьникам полюбить математику и сдать экзамены на отлично.
+                        Индивидуальные и групповые занятия онлайн.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start mb-6">
+                        <a href="#contact" class="bg-smart-orange text-white px-8 py-4 rounded-lg font-semibold text-lg hover:scale-105 transition-transform shadow-lg">
+                            Записаться на бесплатный урок
+                        </a>
+                        <a href="https://t.me/AVmathematics" target="_blank" class="bg-smart-blue text-white px-8 py-4 rounded-lg font-semibold text-lg hover:scale-105 transition-transform shadow-lg">
+                            Написать в Telegram
+                        </a>
+                    </div>
+                    <p class="text-sm text-gray-600">
+                        ⚡ Первый урок — бесплатно! Никаких скрытых платежей.
+                    </p>
+                </div>
+
+                <!-- Hero Image -->
+                <div class="flex-1 flex justify-center">
+                    <img src="./assets/hero-character.png" alt="УмноЗавр — математика и логика" class="w-full max-w-md">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How We Teach Section -->
+    <section id="about" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-smart-teal mb-12">
+                Как проходит обучение
+            </h2>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-lg transition">
+                    <div class="text-5xl mb-4">🎯</div>
+                    <h3 class="text-xl font-semibold text-smart-teal mb-3">Индивидуальный подход</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Программа адаптируется под уровень и цели каждого ученика
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-lg transition">
+                    <div class="text-5xl mb-4">💻</div>
+                    <h3 class="text-xl font-semibold text-smart-teal mb-3">Онлайн формат</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Удобные занятия из дома в комфортной обстановке
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-lg transition">
+                    <div class="text-5xl mb-4">🧠</div>
+                    <h3 class="text-xl font-semibold text-smart-teal mb-3">Практика и логика</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Не просто теория — развиваем математическое мышление
+                    </p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-lg transition">
+                    <div class="text-5xl mb-4">🎓</div>
+                    <h3 class="text-xl font-semibold text-smart-teal mb-3">Подготовка к экзаменам</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        ОГЭ и ЕГЭ по математике с гарантией результата
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-16 md:py-24 bg-smart-cream">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-smart-teal mb-4">
+                Тарифы и цены
+            </h2>
+            <p class="text-center text-gray-600 mb-12 text-lg">
+                Выберите удобный формат обучения
+            </p>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Individual -->
+                <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition">
+                    <h3 class="text-2xl font-bold text-smart-teal mb-2">Индивидуально</h3>
+                    <div class="text-4xl font-bold text-smart-orange mb-4">5 000₽<span class="text-lg text-gray-600">/час</span></div>
+                    <ul class="space-y-3 mb-6 text-gray-700">
+                        <li class="flex items-start">
+                            <span class="text-smart-green mr-2">✓</span>
+                            Персональное внимание
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-smart-green mr-2">✓</span>
+                            Гибкий график
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-smart-green mr-2">✓</span>
+                            Индивидуальная программа
+                        </li>
+                    </ul>
+                    <a href="#contact" class="block w-full bg-smart-green text-white text-center py-3 rounded-lg font-semibold hover:bg-opacity-90 transition">
+                        Выбрать
+                    </a>
+                </div>
+
+                <!-- Group -->
+                <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition border-2 border-smart-orange relative">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-smart-orange text-white px-4 py-1 rounded-full text-sm font-semibold">
+                        Популярный
+                    </div>
+                    <h3 class="text-2xl font-bold text-smart-teal mb-2">Группа</h3>
+                    <div class="text-4xl font-bold text-smart-orange mb-4">2 500₽<span class="text-lg text-gray-600">/час</span></div>
+                    <ul class="space-y-3 mb-6 text-gray-700">
+                        <li class="flex items-start">
+                            <span class="text-smart-green mr-2">✓</span>
+                            Занятия в мини-группе
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-smart-green mr-2">✓</span>
+                            Обмен опытом
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-smart-green mr-2">✓</span>
+                            Оптимальная цена
+                        </li>
+                    </ul>
+                    <a href="#contact" class="block w-full bg-smart-orange text-white text-center py-3 rounded-lg font-semibold hover:bg-opacity-90 transition">
+                        Выбрать
+                    </a>
+                </div>
+
+                <!-- Curated -->
+                <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition">
+                    <h3 class="text-2xl font-bold text-smart-teal mb-2">Кураторство</h3>
+                    <div class="text-4xl font-bold text-smart-orange mb-4">15 000₽<span class="text-lg text-gray-600">/курс</span></div>
+                    <ul class="space-y-3 mb-6 text-gray-700">
+                        <li class="flex items-start">
+                            <span class="text-smart-green mr-2">✓</span>
+                            Готовые видеоуроки
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-smart-green mr-2">✓</span>
+                            Проверка домашних заданий
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-smart-green mr-2">✓</span>
+                            Поддержка куратора
+                        </li>
+                    </ul>
+                    <a href="#contact" class="block w-full bg-smart-green text-white text-center py-3 rounded-lg font-semibold hover:bg-opacity-90 transition">
+                        Выбрать
+                    </a>
+                </div>
+            </div>
+
+            <p class="text-center mt-8 text-smart-teal font-semibold text-lg">
+                💡 Первый урок — бесплатно!
+            </p>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-smart-teal mb-12">
+                Отзывы учеников и родителей
+            </h2>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-smart-cream rounded-xl p-6 shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-smart-green rounded-full flex items-center justify-center text-white text-xl font-bold">
+                            А
+                        </div>
+                        <div class="ml-3">
+                            <p class="font-semibold text-smart-teal">Анна, мама ученика</p>
+                            <p class="text-sm text-gray-600">8 класс</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed mb-3">
+                        "Сын занимается уже 3 месяца. Оценки улучшились с троек до четвёрок и пятёрок! Главное — появился интерес к математике."
+                    </p>
+                    <div class="text-smart-yellow">★★★★★</div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-smart-cream rounded-xl p-6 shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-smart-green rounded-full flex items-center justify-center text-white text-xl font-bold">
+                            М
+                        </div>
+                        <div class="ml-3">
+                            <p class="font-semibold text-smart-teal">Михаил</p>
+                            <p class="text-sm text-gray-600">11 класс</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed mb-3">
+                        "Готовился к ЕГЭ с УмноЗавром. Сдал на 85 баллов! Объясняют понятно, всегда можно задать вопрос. Рекомендую!"
+                    </p>
+                    <div class="text-smart-yellow">★★★★★</div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-smart-cream rounded-xl p-6 shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-smart-green rounded-full flex items-center justify-center text-white text-xl font-bold">
+                            Е
+                        </div>
+                        <div class="ml-3">
+                            <p class="font-semibold text-smart-teal">Елена Викторовна</p>
+                            <p class="text-sm text-gray-600">Мама ученицы 9 класса</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed mb-3">
+                        "Дочь готовилась к ОГЭ. Результат — 5 по математике! Спасибо за профессионализм и терпение. Будем продолжать!"
+                    </p>
+                    <div class="text-smart-yellow">★★★★★</div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="https://t.me/smartzavr" target="_blank" class="inline-flex items-center text-smart-blue font-semibold hover:underline">
+                    Больше отзывов в нашем Telegram-канале →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-16 md:py-24 bg-smart-cream">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-smart-teal mb-12">
+                Часто задаваемые вопросы
+            </h2>
+
+            <div class="space-y-4">
+                <!-- FAQ 1 -->
+                <div class="bg-white rounded-lg shadow-sm">
+                    <button class="faq-question w-full text-left p-6 font-semibold text-smart-teal flex justify-between items-center hover:bg-gray-50 transition">
+                        <span>Какой формат занятий?</span>
+                        <span class="text-2xl">+</span>
+                    </button>
+                    <div class="faq-answer hidden p-6 pt-0 text-gray-700 leading-relaxed">
+                        Занятия проходят онлайн в Zoom или Google Meet. Вы можете заниматься индивидуально, в группе или выбрать формат кураторства с готовыми видеоуроками.
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="bg-white rounded-lg shadow-sm">
+                    <button class="faq-question w-full text-left p-6 font-semibold text-smart-teal flex justify-between items-center hover:bg-gray-50 transition">
+                        <span>Можно ли попробовать бесплатно?</span>
+                        <span class="text-2xl">+</span>
+                    </button>
+                    <div class="faq-answer hidden p-6 pt-0 text-gray-700 leading-relaxed">
+                        Да! Первый урок всегда бесплатный. На нём мы познакомимся, определим уровень знаний и составим индивидуальный план обучения.
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="bg-white rounded-lg shadow-sm">
+                    <button class="faq-question w-full text-left p-6 font-semibold text-smart-teal flex justify-between items-center hover:bg-gray-50 transition">
+                        <span>Для какого возраста подходит?</span>
+                        <span class="text-2xl">+</span>
+                    </button>
+                    <div class="faq-answer hidden p-6 pt-0 text-gray-700 leading-relaxed">
+                        Занятия подходят для школьников с 5 по 11 класс. Программа адаптируется под возраст и уровень подготовки ученика.
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="bg-white rounded-lg shadow-sm">
+                    <button class="faq-question w-full text-left p-6 font-semibold text-smart-teal flex justify-between items-center hover:bg-gray-50 transition">
+                        <span>Как проходит оплата?</span>
+                        <span class="text-2xl">+</span>
+                    </button>
+                    <div class="faq-answer hidden p-6 pt-0 text-gray-700 leading-relaxed">
+                        Оплата производится по факту проведённых занятий. Принимаем оплату на карту или через СБП. Первый урок бесплатный.
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="bg-white rounded-lg shadow-sm">
+                    <button class="faq-question w-full text-left p-6 font-semibold text-smart-teal flex justify-between items-center hover:bg-gray-50 transition">
+                        <span>Как часто проходят занятия?</span>
+                        <span class="text-2xl">+</span>
+                    </button>
+                    <div class="faq-answer hidden p-6 pt-0 text-gray-700 leading-relaxed">
+                        Обычно 2-3 раза в неделю по 60 минут. График подбирается индивидуально с учётом вашей занятости.
+                    </div>
+                </div>
+
+                <!-- FAQ 6 -->
+                <div class="bg-white rounded-lg shadow-sm">
+                    <button class="faq-question w-full text-left p-6 font-semibold text-smart-teal flex justify-between items-center hover:bg-gray-50 transition">
+                        <span>Что если не подойдёт?</span>
+                        <span class="text-2xl">+</span>
+                    </button>
+                    <div class="faq-answer hidden p-6 pt-0 text-gray-700 leading-relaxed">
+                        Вы можете прекратить занятия в любой момент. Никаких обязательств и долгосрочных контрактов. Первый урок бесплатный — попробуйте без риска!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-smart-teal mb-4">
+                Запишитесь на бесплатный урок
+            </h2>
+            <p class="text-center text-gray-600 mb-12 text-lg">
+                Оставьте заявку, и я свяжусь с вами в течение 1 часа
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Contact Form -->
+                <div class="bg-smart-cream rounded-xl p-8 shadow-lg">
+                    <form id="contact-form" class="space-y-4">
+                        <div>
+                            <label class="block text-smart-teal font-semibold mb-2">Ваше имя *</label>
+                            <input type="text" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-smart-green focus:ring-2 focus:ring-smart-green focus:outline-none transition">
+                        </div>
+
+                        <div>
+                            <label class="block text-smart-teal font-semibold mb-2">Телефон *</label>
+                            <input type="tel" name="phone" required placeholder="+7 (___) ___-__-__" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-smart-green focus:ring-2 focus:ring-smart-green focus:outline-none transition">
+                        </div>
+
+                        <div>
+                            <label class="block text-smart-teal font-semibold mb-2">Класс ребёнка</label>
+                            <select name="grade" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-smart-green focus:ring-2 focus:ring-smart-green focus:outline-none transition">
+                                <option value="">Выберите класс</option>
+                                <option value="5">5 класс</option>
+                                <option value="6">6 класс</option>
+                                <option value="7">7 класс</option>
+                                <option value="8">8 класс</option>
+                                <option value="9">9 класс (ОГЭ)</option>
+                                <option value="10">10 класс</option>
+                                <option value="11">11 класс (ЕГЭ)</option>
+                            </select>
+                        </div>
+
+                        <div class="flex items-start">
+                            <input type="checkbox" name="consent" required class="mt-1 mr-2">
+                            <label class="text-sm text-gray-600">
+                                Я согласен на обработку персональных данных
+                            </label>
+                        </div>
+
+                        <button type="submit" class="w-full bg-smart-orange text-white py-4 rounded-lg font-semibold text-lg hover:scale-105 transition-transform shadow-lg">
+                            Записаться
+                        </button>
+                    </form>
+
+                    <p id="form-message" class="mt-4 text-center hidden"></p>
+                </div>
+
+                <!-- Alternative Contact Methods -->
+                <div class="space-y-6">
+                    <div class="bg-white border-2 border-smart-blue rounded-xl p-6 shadow-sm hover:shadow-md transition">
+                        <h3 class="font-semibold text-smart-teal mb-3 text-lg">📱 Telegram</h3>
+                        <a href="https://t.me/AVmathematics" target="_blank" class="text-smart-blue hover:underline font-medium">
+                            @AVmathematics
+                        </a>
+                        <p class="text-sm text-gray-600 mt-2">Напишите мне напрямую</p>
+                    </div>
+
+                    <div class="bg-white border-2 border-smart-green rounded-xl p-6 shadow-sm hover:shadow-md transition">
+                        <h3 class="font-semibold text-smart-teal mb-3 text-lg">📞 Телефон</h3>
+                        <a href="tel:+79959191301" class="text-smart-green hover:underline font-medium text-lg">
+                            +7 995 919-13-01
+                        </a>
+                        <p class="text-sm text-gray-600 mt-2">Звоните в любое время</p>
+                    </div>
+
+                    <div class="bg-white border-2 border-smart-orange rounded-xl p-6 shadow-sm hover:shadow-md transition">
+                        <h3 class="font-semibold text-smart-teal mb-3 text-lg">✉️ Email</h3>
+                        <a href="mailto:Smartzavr@gmail.com" class="text-smart-orange hover:underline font-medium">
+                            Smartzavr@gmail.com
+                        </a>
+                        <p class="text-sm text-gray-600 mt-2">Отвечу в течение дня</p>
+                    </div>
+
+                    <div class="bg-white border-2 border-smart-blue rounded-xl p-6 shadow-sm hover:shadow-md transition">
+                        <h3 class="font-semibold text-smart-teal mb-3 text-lg">📢 Telegram-канал</h3>
+                        <a href="https://t.me/smartzavr" target="_blank" class="text-smart-blue hover:underline font-medium">
+                            @smartzavr
+                        </a>
+                        <p class="text-sm text-gray-600 mt-2">Полезные материалы и новости</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-smart-teal text-white py-12">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <!-- Logo & Description -->
+                <div>
+                    <img src="./assets/logo.png" alt="УмноЗавр" class="h-16 mb-4 brightness-0 invert">
+                    <p class="text-sm text-gray-300 leading-relaxed">
+                        Онлайн-репетитор по математике и логике для школьников 5-11 классов
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-semibold mb-4 text-lg">Навигация</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#about" class="hover:text-smart-yellow transition">О нас</a></li>
+                        <li><a href="#pricing" class="hover:text-smart-yellow transition">Цены</a></li>
+                        <li><a href="#testimonials" class="hover:text-smart-yellow transition">Отзывы</a></li>
+                        <li><a href="#faq" class="hover:text-smart-yellow transition">FAQ</a></li>
+                        <li><a href="#contact" class="hover:text-smart-yellow transition">Контакты</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="font-semibold mb-4 text-lg">Контакты</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="tel:+79959191301" class="hover:text-smart-yellow transition">+7 995 919-13-01</a></li>
+                        <li><a href="mailto:Smartzavr@gmail.com" class="hover:text-smart-yellow transition">Smartzavr@gmail.com</a></li>
+                        <li><a href="https://t.me/AVmathematics" target="_blank" class="hover:text-smart-yellow transition">Telegram: @AVmathematics</a></li>
+                        <li><a href="https://t.me/smartzavr" target="_blank" class="hover:text-smart-yellow transition">Канал: @smartzavr</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-600 pt-6 text-center text-sm text-gray-300">
+                <p>© 2025 УмноЗавр. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating "Call Me Back" Button -->
+    <button id="callback-btn" class="fixed bottom-6 right-6 bg-smart-orange text-white w-14 h-14 rounded-full shadow-2xl hover:scale-110 transition-transform z-40 flex items-center justify-center text-2xl">
+        📞
+    </button>
+
+    <!-- Callback Modal -->
+    <div id="callback-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl p-8 max-w-md w-full relative">
+            <button id="close-modal" class="absolute top-4 right-4 text-2xl text-gray-600 hover:text-gray-800">&times;</button>
+
+            <h3 class="text-2xl font-bold text-smart-teal mb-4">Перезвоним вам!</h3>
+            <p class="text-gray-600 mb-6">Оставьте свой номер, и я свяжусь с вами в ближайшее время</p>
+
+            <form id="callback-form" class="space-y-4">
+                <div>
+                    <label class="block text-smart-teal font-semibold mb-2">Ваше имя *</label>
+                    <input type="text" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-smart-green focus:ring-2 focus:ring-smart-green focus:outline-none">
+                </div>
+
+                <div>
+                    <label class="block text-smart-teal font-semibold mb-2">Телефон *</label>
+                    <input type="tel" name="phone" required placeholder="+7 (___) ___-__-__" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-smart-green focus:ring-2 focus:ring-smart-green focus:outline-none">
+                </div>
+
+                <button type="submit" class="w-full bg-smart-orange text-white py-3 rounded-lg font-semibold hover:bg-opacity-90 transition shadow-lg">
+                    Отправить
+                </button>
+            </form>
+
+            <p id="callback-message" class="mt-4 text-center hidden"></p>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="./js/main.js"></script>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "УмноЗавр",
+      "alternateName": "SmartZavr",
+      "url": "https://smartzavr.ru",
+      "logo": "https://smartzavr.ru/assets/logo.png",
+      "description": "Онлайн-репетитор по математике и логике для школьников",
+      "telephone": "+79959191301",
+      "email": "Smartzavr@gmail.com",
+      "sameAs": [
+        "https://t.me/smartzavr",
+        "https://t.me/AVmathematics"
+      ]
+    }
+    </script>
+</body>
+</html>

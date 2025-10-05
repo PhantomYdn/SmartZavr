@@ -9,7 +9,6 @@ So main purpose is to attract people, expain products, allow to contact and kind
 
 ## Products
 
-Индивидуально 5к, группа 2500, кураторство 1500
 1. Individual classes: 5000 rub per hour
 2. Group classes: 2500 rub per hour
 3. Pre-recorded classes with curation: 15000 rub
@@ -34,10 +33,20 @@ There should be such lead capture elements:
 * Telegram channel: https://t.me/smartzavr
 * Email: Smartzavr@gmail.com
 
-## Useful resources
+## Project Files
 
-* `./input-graphics/previoussite.png` - previous site
-* `./input-graphics/SmartZavrGraphics/` - folder with SmartZavr character
+For detailed information, see:
+* **CLAUDE.md** - Entry point for AI sessions
+* **PROJECT_SUMMARY.md** - Complete project status & overview
+* **SETUP.md** - Deployment & configuration guide
+* **competitors.md** - Market analysis
+* **structure.md** - Site architecture
+* **seo.md** - SEO strategy
+
+Resources:
+* `./input-graphics/previoussite.png` - previous site reference
+* `./input-graphics/SmartZavrGraphics/` - SmartZavr character graphics
+* `./assets/` - Web-ready graphics (logo, hero)
 
 ## Design System
 
@@ -232,6 +241,54 @@ Needed:
 - [x] ~~Design site structure: Based on competitor analysis and business goals, create information architecture and user flows. Document in `structure.md`~~
 - [x] ~~SEO strategy: Develop semantic kernel (keywords) for Russian market, plan meta tags and content structure. Document in `seo.md`~~
 - [x] ~~Design system: Analyze SmartZavr graphics, propose color palette, typography, component styles. Document findings in this file under new "Design System" section~~
-- [ ] Implement MVP: Build HTML structure, Tailwind styling, basic JS interactivity, lead capture forms
-- [ ] SEO implementation: Add meta tags, structured data, optimize performance, test on mobile
+- [x] ~~Implement MVP: Build HTML structure, Tailwind styling, basic JS interactivity, lead capture forms~~
+- [x] ~~SEO implementation: Add meta tags, structured data, optimize performance, test on mobile~~
+- [x] ~~Create a Dockerfile which will allow to run this static site in a container~~
 - [ ] QA & Deploy: Cross-browser testing, performance audit, deploy to hosting
+
+# Quick Reference
+
+## Run Locally
+
+```bash
+# Python
+python3 -m http.server 8000
+
+# Docker
+docker build -t smartzavr .
+docker run -d -p 80:80 smartzavr
+```
+
+Visit http://localhost:8000 or http://localhost
+
+## Site Sections
+
+1. Hero - Main value proposition + CTAs
+2. How We Teach - 4 feature cards
+3. Pricing - 3 tiers (Individual/Group/Curated)
+4. Testimonials - 3 reviews
+5. FAQ - 6 questions (accordion)
+6. Contact - Form + alternative methods
+7. Footer - Navigation + contact info
+
+## Key Files to Edit
+
+- **Content**: `index.html` (all sections inline)
+- **Behavior**: `js/main.js` (forms, navigation)
+- **Graphics**: `assets/` directory
+- **Forms**: Configure backend in `js/main.js` (see SETUP.md)
+
+## Before Launch Checklist
+
+- [ ] Configure form submission backend
+- [ ] Add Yandex Metrica tracking code
+- [ ] Optimize images to WebP format
+- [ ] Replace favicon.ico placeholder
+- [ ] Test all contact links work
+- [ ] Proofread all Russian text
+- [ ] Test on mobile devices
+- [ ] Set up SSL certificate
+- [ ] Submit to Yandex Webmaster
+- [ ] Submit to Google Search Console
+
+See **SETUP.md** for detailed instructions.
