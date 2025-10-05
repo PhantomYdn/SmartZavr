@@ -29,30 +29,20 @@ So main purpose is to attract people, expain products, allow to contact and kind
 There should be such lead capture elements:
 
 * "Call me back"
-* Phone number
-* Telegram to contact
-* Telegram channel
-* Email
+* Phone number: +79853110213
+* Telegram to contact: https://t.me/AVmathematics
+* Telegram channel: https://t.me/smartzavr
+* Email: Smartzavr@gmail.com
 
 ## Useful resources
 
 * `./input-graphics/previoussite.png` - previous site
 * `./input-graphics/SmartZavrGraphics/` - folder with SmartZavr character
 
-## Open Questions
-
-* **Contact details**: Provide actual phone number, email, Telegram username for lead capture
-* **Lead management**: Where should "call me back" form submissions go? (email/Telegram bot/CRM)
-* **Hosting**: Is smartzavr.ru registered? What hosting service?
-* **Content**: Do you have text for tutor bio, methodology, testimonials?
-* **Analytics**: Integrate Yandex Metrica/Google Analytics?
-* **Legal**: Need privacy policy, terms of service, cookie consent?
-* **Design preferences**: Specific colors or style beyond provided graphics?
-
 # TODO list
 
 - [x] ~~Analize README.md and create `CLAUDE.md` for future sessions~~
-- [ ] Research competitors: Find 5-10 Russian math tutoring websites, analyze their structure, features, and positioning. Document in `competitors.md`
+- [x] ~~Research competitors: Find 5-10 Russian math tutoring websites, analyze their structure, features, and positioning. Document in `competitors.md`~~
 - [ ] Design site structure: Based on competitor analysis and business goals, create information architecture and user flows. Document in `structure.md`
 - [ ] SEO strategy: Develop semantic kernel (keywords) for Russian market, plan meta tags and content structure. Document in `seo.md`
 - [ ] Design system: Analyze SmartZavr graphics, propose color palette, typography, component styles. Document findings in this file under new "Design System" section
