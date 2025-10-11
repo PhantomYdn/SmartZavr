@@ -1,110 +1,155 @@
-// Mobile Menu Toggle
-const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-const mobileMenu = document.getElementById('mobile-menu');
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM loaded');
 
-mobileMenuBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-});
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
 
-// Close mobile menu when clicking on a link
-const mobileMenuLinks = mobileMenu.querySelectorAll('a');
-mobileMenuLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-    });
-});
+    if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
 
-// FAQ Accordion
-const faqQuestions = document.querySelectorAll('.faq-question');
-
-faqQuestions.forEach(question => {
-    question.addEventListener('click', () => {
-        const answer = question.nextElementSibling;
-        const icon = question.querySelector('span:last-child');
-
-        // Toggle answer
-        answer.classList.toggle('hidden');
-
-        // Toggle icon
-        if (answer.classList.contains('hidden')) {
-            icon.textContent = '+';
-        } else {
-            icon.textContent = '−';
-        }
-    });
-});
-
-// Contact Form Submission
-const contactForm = document.getElementById('contact-form');
-const formMessage = document.getElementById('form-message');
-
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    const formData = new FormData(contactForm);
-    const name = formData.get('name');
-    const phone = formData.get('phone');
-    const grade = formData.get('grade');
-
-    // Here you would typically send the data to a server
-    // For now, we'll just show a success message
-
-    formMessage.textContent = `Спасибо, ${name}! Мы свяжемся с вами по номеру ${phone} в ближайшее время.`;
-    formMessage.className = 'mt-4 text-center text-smart-green font-semibold';
-    formMessage.classList.remove('hidden');
-
-    // Reset form
-    contactForm.reset();
-
-    // Hide message after 5 seconds
-    setTimeout(() => {
-        formMessage.classList.add('hidden');
-    }, 5000);
-
-    // Optional: Send to Telegram bot or email service
-    // sendToTelegram(name, phone, grade);
-});
-
-// Callback Modal
-const callbackBtn = document.getElementById('callback-btn');
-const callbackModal = document.getElementById('callback-modal');
-const closeModal = document.getElementById('close-modal');
-const callbackForm = document.getElementById('callback-form');
-const callbackMessage = document.getElementById('callback-message');
-
-callbackBtn.addEventListener('click', () => {
-    callbackModal.classList.remove('hidden');
-});
-
-closeModal.addEventListener('click', () => {
-    callbackModal.classList.add('hidden');
-});
-
-// Close modal when clicking outside
-callbackModal.addEventListener('click', (e) => {
-    if (e.target === callbackModal) {
-        callbackModal.classList.add('hidden');
+        // Close mobile menu when clicking on a link
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
     }
-});
 
-// Callback Form Submission
-callbackForm.addEventListener('submit', (e) => {
-    e.preventDefault();
+    // FAQ Accordion
+    const faqQuestions = document.querySelectorAll('.faq-question');
 
-    const formData = new FormData(callbackForm);
-    const name = formData.get('name');
-    const phone = formData.get('phone');
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+            const answer = question.nextElementSibling;
+            const icon = question.querySelector('span:last-child');
 
-    callbackMessage.textContent = `Спасибо, ${name}! Мы перезвоним вам в ближайшее время.`;
-    callbackMessage.className = 'mt-4 text-center text-smart-green font-semibold';
-    callbackMessage.classList.remove('hidden');
+            // Toggle answer
+            answer.classList.toggle('hidden');
 
-    callbackForm.reset();
+            // Toggle icon
+            if (answer.classList.contains('hidden')) {
+                icon.textContent = '+';
+            } else {
+                icon.textContent = '−';
+            }
+        });
+    });
 
-    setTimeout(() => {
-        callbackModal.classList.add('hidden');
-        callbackMessage.classList.add('hidden');
-    }, 3000);
+    // Contact Form Submission
+    const contactForm = document.getElementById('contact-form');
+    const formMessage = document.getElementById('form-message');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+            console.log('Form submit event fired');
+            e.preventDefault();
+
+            const formData = new FormData(contactForm);
+            const name = formData.get('entry.2101930330');
+            const phone = formData.get('entry.638091186');
+            const grade = formData.get('entry.2145369962');
+
+            console.log('Form data:', { name, phone, grade });
+
+        try {
+            await fetch('https://docs.google.com/forms/d/e/1FAIpQLSfOTcVtYYLBmdJF1BVZfBzqoDAAkaUXpPX-nVH1GiWBqwK9Hw/formResponse', {
+                method: 'POST',
+                body: formData,
+                mode: 'no-cors' // Google Forms requires no-cors for cross-origin
+            });
+
+            // Since no-cors, we can't check response, but if no error, assume success
+            formMessage.textContent = `Спасибо, ${name}! Мы свяжемся с вами по номеру ${phone} в ближайшее время.`;
+            formMessage.className = 'mt-4 text-center text-smart-green font-semibold';
+            formMessage.classList.remove('hidden');
+
+            // Reset form
+            contactForm.reset();
+
+            // Hide message after 5 seconds
+            setTimeout(() => {
+                formMessage.classList.add('hidden');
+            }, 5000);
+
+            // Optional: Send to Telegram bot or email service
+            // sendToTelegram(name, phone, grade);
+        } catch (error) {
+            console.error('Error submitting form:', error);
+            formMessage.textContent = 'Произошла ошибка при отправке формы. Попробуйте еще раз.';
+            formMessage.className = 'mt-4 text-center text-red-500 font-semibold';
+            formMessage.classList.remove('hidden');
+        }
+        });
+    } else {
+        console.error('Contact form not found');
+    }
+
+    // Callback Modal
+    const callbackBtn = document.getElementById('callback-btn');
+    const callbackModal = document.getElementById('callback-modal');
+    const closeModal = document.getElementById('close-modal');
+    const callbackForm = document.getElementById('callback-form');
+    const callbackMessage = document.getElementById('callback-message');
+
+    if (callbackBtn && callbackModal && closeModal && callbackForm && callbackMessage) {
+        callbackBtn.addEventListener('click', () => {
+            callbackModal.classList.remove('hidden');
+        });
+
+        closeModal.addEventListener('click', () => {
+            callbackModal.classList.add('hidden');
+        });
+
+        // Close modal when clicking outside
+        callbackModal.addEventListener('click', (e) => {
+            if (e.target === callbackModal) {
+                callbackModal.classList.add('hidden');
+            }
+        });
+
+        // Callback Form Submission
+        callbackForm.addEventListener('submit', async (e) => {
+            console.log('Callback form submit event fired');
+            e.preventDefault();
+
+            const formData = new FormData(callbackForm);
+            const name = formData.get('entry.2101930330');
+            const phone = formData.get('entry.638091186');
+
+            console.log('Callback form data:', { name, phone });
+
+        try {
+            await fetch('https://docs.google.com/forms/d/e/1FAIpQLSfOTcVtYYLBmdJF1BVZfBzqoDAAkaUXpPX-nVH1GiWBqwK9Hw/formResponse', {
+                method: 'POST',
+                body: formData,
+                mode: 'no-cors' // Google Forms requires no-cors for cross-origin
+            });
+
+            // Since no-cors, we can't check response, but if no error, assume success
+            callbackMessage.textContent = `Спасибо, ${name}! Мы перезвоним вам в ближайшее время.`;
+            callbackMessage.className = 'mt-4 text-center text-smart-green font-semibold';
+            callbackMessage.classList.remove('hidden');
+
+            callbackForm.reset();
+
+            setTimeout(() => {
+                callbackModal.classList.add('hidden');
+                callbackMessage.classList.add('hidden');
+            }, 3000);
+        } catch (error) {
+            console.error('Error submitting callback form:', error);
+            callbackMessage.textContent = 'Произошла ошибка при отправке формы. Попробуйте еще раз.';
+            callbackMessage.className = 'mt-4 text-center text-red-500 font-semibold';
+            callbackMessage.classList.remove('hidden');
+        }
+        });
+    } else {
+        console.error('Callback elements not found');
+    }
 });
 
 // Smooth scroll with offset for fixed header
