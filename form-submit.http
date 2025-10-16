@@ -1,0 +1,6 @@
+POST https://script.google.com/macros/s/AKfycbx00Y73PezSow13HAruY590EZmz7OWGui7_UmZtQYUpmUQ3MQ3cB3jbVJgrTA5kqY-JFg/exec
+Content-Type: application/json
+
+{"name":"Test","phone":"1234567890","grade":"8 класс","type":"contact"}
+
+###

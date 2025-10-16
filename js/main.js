@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Contact Form Submission
+    // Contact Form Submission using Google Apps Script
     const contactForm = document.getElementById('contact-form');
     const formMessage = document.getElementById('form-message');
 
@@ -49,40 +49,58 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
 
             const formData = new FormData(contactForm);
-            const name = formData.get('entry.2101930330');
-            const phone = formData.get('entry.638091186');
-            const grade = formData.get('entry.2145369962');
+            const name = formData.get('entry.349700151');
+            const phone = formData.get('entry.1681545097');
+            const grade = formData.get('entry.822543209');
 
             console.log('Form data:', { name, phone, grade });
 
-        try {
-            await fetch('https://docs.google.com/forms/d/e/1FAIpQLSfOTcVtYYLBmdJF1BVZfBzqoDAAkaUXpPX-nVH1GiWBqwK9Hw/formResponse', {
-                method: 'POST',
-                body: formData,
-                mode: 'no-cors' // Google Forms requires no-cors for cross-origin
-            });
+            // Google Apps Script Web App URL
+            const scriptUrl = 'https://script.google.com/macros/s/AKfycbx00Y73PezSow13HAruY590EZmz7OWGui7_UmZtQYUpmUQ3MQ3cB3jbVJgrTA5kqY-JFg/exec';
 
-            // Since no-cors, we can't check response, but if no error, assume success
-            formMessage.textContent = `Спасибо, ${name}! Мы свяжемся с вами по номеру ${phone} в ближайшее время.`;
-            formMessage.className = 'mt-4 text-center text-smart-green font-semibold';
-            formMessage.classList.remove('hidden');
+            try {
+                // Send data to Google Apps Script
+                const response = await fetch(scriptUrl, {
+                    method: 'POST',
+                    mode: 'no-cors', // Important for Google Apps Script
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        name: name,
+                        phone: phone,
+                        grade: grade,
+                        type: 'contact'
+                    })
+                });
 
-            // Reset form
-            contactForm.reset();
+                // Note: With no-cors mode, we can't read the response
+                // But if fetch doesn't throw an error, the request was sent
+                console.log('Form submitted successfully');
 
-            // Hide message after 5 seconds
-            setTimeout(() => {
-                formMessage.classList.add('hidden');
-            }, 5000);
+                // Show success message
+                formMessage.textContent = `Спасибо, ${name}! Мы свяжемся с вами по номеру ${phone} в ближайшее время.`;
+                formMessage.className = 'mt-4 text-center text-smart-green font-semibold';
+                formMessage.classList.remove('hidden');
 
-            // Optional: Send to Telegram bot or email service
-            // sendToTelegram(name, phone, grade);
-        } catch (error) {
-            console.error('Error submitting form:', error);
-            formMessage.textContent = 'Произошла ошибка при отправке формы. Попробуйте еще раз.';
-            formMessage.className = 'mt-4 text-center text-red-500 font-semibold';
-            formMessage.classList.remove('hidden');
-        }
+                // Reset form
+                contactForm.reset();
+
+                // Hide message after 5 seconds
+                setTimeout(() => {
+                    formMessage.classList.add('hidden');
+                }, 5000);
+
+            } catch (error) {
+                console.error('Error submitting form:', error);
+                formMessage.textContent = 'Произошла ошибка. Пожалуйста, попробуйте позже или свяжитесь с нами напрямую.';
+                formMessage.className = 'mt-4 text-center text-red-600 font-semibold';
+                formMessage.classList.remove('hidden');
+
+                setTimeout(() => {
+                    formMessage.classList.add('hidden');
+                }, 5000);
+            }
         });
     } else {
         console.error('Contact form not found');
@@ -111,41 +129,60 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Callback Form Submission
+        // Callback Form Submission using Google Apps Script
         callbackForm.addEventListener('submit', async (e) => {
             console.log('Callback form submit event fired');
             e.preventDefault();
 
             const formData = new FormData(callbackForm);
-            const name = formData.get('entry.2101930330');
-            const phone = formData.get('entry.638091186');
+            const name = formData.get('entry.349700151');
+            const phone = formData.get('entry.1681545097');
 
             console.log('Callback form data:', { name, phone });
 
-        try {
-            await fetch('https://docs.google.com/forms/d/e/1FAIpQLSfOTcVtYYLBmdJF1BVZfBzqoDAAkaUXpPX-nVH1GiWBqwK9Hw/formResponse', {
-                method: 'POST',
-                body: formData,
-                mode: 'no-cors' // Google Forms requires no-cors for cross-origin
-            });
+            // Google Apps Script Web App URL
+            const scriptUrl = 'https://script.google.com/macros/s/AKfycbx00Y73PezSow13HAruY590EZmz7OWGui7_UmZtQYUpmUQ3MQ3cB3jbVJgrTA5kqY-JFg/exec';
 
-            // Since no-cors, we can't check response, but if no error, assume success
-            callbackMessage.textContent = `Спасибо, ${name}! Мы перезвоним вам в ближайшее время.`;
-            callbackMessage.className = 'mt-4 text-center text-smart-green font-semibold';
-            callbackMessage.classList.remove('hidden');
+            try {
+                // Send data to Google Apps Script
+                const response = await fetch(scriptUrl, {
+                    method: 'POST',
+                    mode: 'no-cors', // Important for Google Apps Script
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        name: name,
+                        phone: phone,
+                        grade: '',
+                        type: 'callback'
+                    })
+                });
 
-            callbackForm.reset();
+                console.log('Callback form submitted successfully');
 
-            setTimeout(() => {
-                callbackModal.classList.add('hidden');
-                callbackMessage.classList.add('hidden');
-            }, 3000);
-        } catch (error) {
-            console.error('Error submitting callback form:', error);
-            callbackMessage.textContent = 'Произошла ошибка при отправке формы. Попробуйте еще раз.';
-            callbackMessage.className = 'mt-4 text-center text-red-500 font-semibold';
-            callbackMessage.classList.remove('hidden');
-        }
+                // Show success message
+                callbackMessage.textContent = `Спасибо, ${name}! Мы перезвоним вам в ближайшее время.`;
+                callbackMessage.className = 'mt-4 text-center text-smart-green font-semibold';
+                callbackMessage.classList.remove('hidden');
+
+                callbackForm.reset();
+
+                setTimeout(() => {
+                    callbackModal.classList.add('hidden');
+                    callbackMessage.classList.add('hidden');
+                }, 3000);
+
+            } catch (error) {
+                console.error('Error submitting callback form:', error);
+                callbackMessage.textContent = 'Произошла ошибка. Пожалуйста, попробуйте позже.';
+                callbackMessage.className = 'mt-4 text-center text-red-600 font-semibold';
+                callbackMessage.classList.remove('hidden');
+
+                setTimeout(() => {
+                    callbackMessage.classList.add('hidden');
+                }, 3000);
+            }
         });
     } else {
         console.error('Callback elements not found');
