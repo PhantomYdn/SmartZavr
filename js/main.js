@@ -49,14 +49,14 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
 
             const formData = new FormData(contactForm);
-            const name = formData.get('entry.349700151');
-            const phone = formData.get('entry.1681545097');
-            const grade = formData.get('entry.822543209');
+            const name = formData.get('name');
+            const phone = formData.get('phone');
+            const grade = formData.get('grade');
 
             console.log('Form data:', { name, phone, grade });
 
             // Google Apps Script Web App URL
-            const scriptUrl = 'https://script.google.com/macros/s/AKfycbx00Y73PezSow13HAruY590EZmz7OWGui7_UmZtQYUpmUQ3MQ3cB3jbVJgrTA5kqY-JFg/exec';
+            const scriptUrl = 'https://script.google.com/macros/s/AKfycbxAZ7tRZYivDewq8lYxM7LyPidZbGNIkIR3S4-1U9AM0IXf09Vre3zLxl07oRqH1iLfDw/exec';
 
             try {
                 // Send data to Google Apps Script
@@ -135,13 +135,13 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
 
             const formData = new FormData(callbackForm);
-            const name = formData.get('entry.349700151');
-            const phone = formData.get('entry.1681545097');
+            const name = formData.get('name');
+            const phone = formData.get('phone');
 
             console.log('Callback form data:', { name, phone });
 
             // Google Apps Script Web App URL
-            const scriptUrl = 'https://script.google.com/macros/s/AKfycbx00Y73PezSow13HAruY590EZmz7OWGui7_UmZtQYUpmUQ3MQ3cB3jbVJgrTA5kqY-JFg/exec';
+            const scriptUrl = 'https://script.google.com/macros/s/AKfycbxAZ7tRZYivDewq8lYxM7LyPidZbGNIkIR3S4-1U9AM0IXf09Vre3zLxl07oRqH1iLfDw/exec';
 
             try {
                 // Send data to Google Apps Script
