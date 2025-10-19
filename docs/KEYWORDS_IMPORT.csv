@@ -1,0 +1,42 @@
+Ad Group,Keyword,Match Type,Max CPC (RUB),Priority,Notes
+Exam Preparation,подготовка к ОГЭ математика,Phrase,180,Critical,High intent exam prep
+Exam Preparation,подготовка к ЕГЭ математика,Phrase,200,Critical,High intent exam prep
+Exam Preparation,репетитор ОГЭ математика онлайн,Phrase,120,Critical,Online tutor for OGE
+Exam Preparation,репетитор ЕГЭ математика онлайн,Phrase,140,Critical,Online tutor for EGE
+Exam Preparation,ОГЭ математика 9 класс,Phrase,100,High,Grade-specific OGE
+Exam Preparation,ЕГЭ математика 11 класс,Phrase,110,High,Grade-specific EGE
+Exam Preparation,подготовка к ОГЭ математика недорого,Exact,80,High,Budget-conscious exam prep
+Exam Preparation,подготовка к ЕГЭ математика цена,Exact,70,High,Price-focused exam prep
+Exam Preparation,ОГЭ математика онлайн,Phrase,90,High,Online OGE prep
+Exam Preparation,ЕГЭ математика онлайн,Phrase,100,High,Online EGE prep
+Exam Preparation,репетитор для подготовки к ОГЭ,Phrase,110,High,Tutor for OGE prep
+Exam Preparation,репетитор для подготовки к ЕГЭ,Phrase,120,High,Tutor for EGE prep
+Exam Preparation,математика ОГЭ с нуля,Exact,60,Medium,From scratch OGE
+Exam Preparation,математика ЕГЭ профильный уровень,Exact,80,Medium,Profile level EGE
+Long-Tail Keywords,репетитор математика онлайн недорого,Phrase,60,Critical,Affordable online tutor
+Long-Tail Keywords,бесплатный пробный урок математика,Phrase,40,Critical,Free trial lesson
+Long-Tail Keywords,групповые занятия математика онлайн,Exact,50,Critical,Group classes online
+Long-Tail Keywords,репетитор математика цена,Phrase,80,High,Price-focused search
+Long-Tail Keywords,онлайн репетитор математика недорого,Phrase,60,High,Affordable online search
+Long-Tail Keywords,математика 5 класс репетитор онлайн,Exact,50,High,Grade 5 specific
+Long-Tail Keywords,математика 6 класс репетитор онлайн,Exact,50,High,Grade 6 specific
+Long-Tail Keywords,математика 7 класс репетитор онлайн,Exact,55,High,Grade 7 specific
+Long-Tail Keywords,математика 8 класс репетитор онлайн,Exact,55,High,Grade 8 specific
+Long-Tail Keywords,математика 9 класс репетитор онлайн,Exact,70,High,Grade 9 specific
+Long-Tail Keywords,математика 10 класс репетитор онлайн,Exact,60,High,Grade 10 specific
+Long-Tail Keywords,математика 11 класс репетитор онлайн,Exact,70,High,Grade 11 specific
+Long-Tail Keywords,занятия математикой онлайн для школьников,Phrase,45,Medium,Online math classes
+Long-Tail Keywords,онлайн уроки математики для школьников,Phrase,45,Medium,Online math lessons
+Long-Tail Keywords,репетитор математика Telegram,Exact,30,Medium,Telegram-specific
+Long-Tail Keywords,индивидуальные занятия математика онлайн,Phrase,55,High,Individual lessons online
+Long-Tail Keywords,математика для школьников онлайн,Phrase,40,Medium,General school math
+Long-Tail Keywords,репетитор по алгебре онлайн,Phrase,60,High,Algebra tutor
+Long-Tail Keywords,репетитор по геометрии онлайн,Phrase,55,High,Geometry tutor
+Long-Tail Keywords,математика логика для школьников,Exact,35,Medium,Math logic for students
+Moscow-Specific,репетитор математика онлайн Москва,Phrase,100,Critical,Moscow online tutor
+Moscow-Specific,математика онлайн Москва,Phrase,70,High,Moscow math online
+Moscow-Specific,репетитор математики Москва онлайн,Phrase,100,High,Moscow math tutor online
+Moscow-Specific,ОГЭ математика Москва,Phrase,90,High,OGE in Moscow
+Moscow-Specific,ЕГЭ математика Москва,Phrase,100,High,EGE in Moscow
+Moscow-Specific,репетитор математика Московская область,Phrase,70,Medium,Moscow region
+Moscow-Specific,онлайн занятия математика Москва,Phrase,60,Medium,Online classes Moscow

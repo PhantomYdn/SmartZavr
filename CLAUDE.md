@@ -16,6 +16,10 @@
 - `seo.md` - SEO strategy, keywords, meta tags
 - `SETUP.md` - Deployment & configuration guide
 - `PROJECT_SUMMARY.md` - Current status & next steps
+- `docs/YANDEX_DIRECT_CAMPAIGN.md` - Complete Yandex Direct strategy
+- `docs/QUICK_START_CAMPAIGN.md` - Launch guide for advertising
+- `docs/KEYWORDS_IMPORT.csv` - Campaign keywords
+- `docs/NEGATIVE_KEYWORDS.txt` - Negative keyword list
 
 ### Code
 - `index.html` - Main SPA file (complete)
@@ -61,3 +65,4 @@
 **Configure forms**: Update `js/main.js` with backend credentials
 
 Always update `README.md` TODO list when completing tasks.
+- Remember to run backgroun task to have a site available for local manual testing.

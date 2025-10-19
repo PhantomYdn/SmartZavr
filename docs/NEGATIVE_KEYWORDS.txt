@@ -1,0 +1,186 @@
+# NEGATIVE KEYWORDS FOR SMARTZAVR YANDEX DIRECT CAMPAIGN
+
+## General Negatives (Apply to ALL Ad Groups)
+
+### Free/Download Related (Not our service)
+-бесплатно (EXCEPT when paired with "урок")
+-скачать
+-загрузить
+-торрент
+-даром
+-без регистрации
+-бесплатные материалы
+
+### Self-Study Materials (Not tutoring)
+-решебник
+-гдз
+-учебник
+-методичка
+-книга
+-пособие
+-конспект
+-шпаргалка
+-скачать учебник
+-читать онлайн
+
+### Video Lessons (Not live tutoring)
+-видеоурок (unless with "репетитор")
+-видео урок
+-смотреть видео
+-youtube урок
+-бесплатные видеоуроки
+
+### Self-Service Tools
+-калькулятор
+-решить онлайн
+-решение задач онлайн
+-онлайн решатель
+-проверка решения
+-автоматическая проверка
+
+### Job Seekers (Not hiring)
+-вакансия
+-работа репетитором
+-требуется репетитор
+-ищу работу
+-резюме репетитор
+-стать репетитором
+-подработка
+-зарплата репетитор
+
+### Wrong Service Type
+-курсы (we're tutoring not courses)
+-тренинг
+-мастер класс
+-вебинар
+-семинар
+-лекция
+-конференция
+
+### Physical Location (We're online only)
+-офлайн
+-очно
+-приходящий
+-на дом
+-репетиторский центр
+-в школе
+-в офисе
+
+### Wrong Education Level
+-университет
+-институт
+-вуз
+-колледж
+-техникум
+-высшая математика
+-вышмат
+-дискретная математика
+-мат анализ
+-линейная алгебра
+-дифференциальные уравнения
+
+### Competitor Brands (Monitor but don't exclude immediately)
+-Skysmart (monitor performance first)
+-Tetrika (monitor performance first)
+-Фоксфорд
+-Учи.ру
+-Яндекс.Репетитор
+
+### Gaming/Entertainment
+-игра
+-играть
+-игровой
+-развлечение
+-мультфильм
+-мультик
+
+### Wrong Subject Focus
+-физика (unless we expand)
+-химия (unless we expand)
+-биология
+-история
+-литература
+-английский язык
+-русский язык
+
+### Adult Education
+-для взрослых
+-взрослый
+-повышение квалификации
+-профессиональная переподготовка
+-мба
+
+### Wrong Audience
+-детский сад
+-дошкольник
+-1 класс
+-2 класс
+-3 класс
+-4 класс (we start from 5th grade)
+
+## Ad Group Specific Negatives
+
+### For Long-Tail Group (Add to generic group)
+-Москва (handled in separate group)
+-Санкт-Петербург (handled separately if needed)
+-Питер
+-СПб
+
+### For Moscow Group
+-очно (emphasize online)
+-офлайн
+-приходящий
+-на дом
+
+## Search Query Monitoring (Add after launch)
+
+### Common irrelevant queries to watch for:
+- "репетитор математика отзывы" (research only)
+- "репетитор математика вакансия"
+- "решебник по математике"
+- "гдз математика"
+- "математика учебник"
+- "скачать математика"
+
+## IMPORTANT NOTES:
+
+1. Use PHRASE match negatives (default in Yandex)
+2. Add negatives at CAMPAIGN level (applies to all ad groups)
+3. Review search query report DAILY for first 2 weeks
+4. Add 5-10 new negatives per day initially
+5. Be careful with broad negatives (might block good traffic)
+
+## Negative Keyword Implementation:
+
+FORMAT FOR YANDEX DIRECT:
+-keyword (phrase match)
+-"keyword" (exact match)
+-[keyword] (broad match)
+
+RECOMMENDED FORMAT:
+Use phrase match (-keyword) for most negatives
+This will block "keyword" in any position in the query
+
+## Weekly Review Process:
+
+Week 1: Expect to add 50-100 negatives (lots of discovery)
+Week 2-3: Add 20-30 negatives (refinement)
+Week 4+: Add 10-15 negatives (maintenance)
+
+## HIGH PRIORITY NEGATIVES (Add first):
+
+-бесплатно
+-скачать
+-гдз
+-решебник
+-вакансия
+-работа
+-курсы
+-университет
+-офлайн
+-очно
+-видеоурок
+-учебник
+-книга
+
+These alone will save 20-30% of wasted spend!

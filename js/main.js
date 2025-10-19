@@ -1,3 +1,13 @@
+// Yandex Metrica Goal Tracking
+function trackYandexGoal(goalName) {
+    if (typeof ym !== 'undefined') {
+        ym(104701968, 'reachGoal', goalName);
+        console.log('Yandex Metrica goal tracked:', goalName);
+    } else {
+        console.warn('Yandex Metrica not loaded, goal not tracked:', goalName);
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM loaded');
 
@@ -77,6 +87,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Note: With no-cors mode, we can't read the response
                 // But if fetch doesn't throw an error, the request was sent
                 console.log('Form submitted successfully');
+
+                // Track conversion goal
+                trackYandexGoal('contact_form_submit');
 
                 // Show success message
                 formMessage.textContent = `Спасибо, ${name}! Мы свяжемся с вами по номеру ${phone} в ближайшее время.`;
@@ -160,6 +173,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
 
                 console.log('Callback form submitted successfully');
+
+                // Track conversion goal
+                trackYandexGoal('callback_form_submit');
 
                 // Show success message
                 callbackMessage.textContent = `Спасибо, ${name}! Мы перезвоним вам в ближайшее время.`;
@@ -251,6 +267,46 @@ phoneInputs.forEach(input => {
             }
         }
     });
+});
+
+// Track phone clicks (Yandex Metrica micro-conversion)
+document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+    link.addEventListener('click', () => {
+        trackYandexGoal('phone_click');
+    });
+});
+
+// Track Telegram clicks (Yandex Metrica micro-conversion)
+document.querySelectorAll('a[href*="t.me/AVmathematics"]').forEach(link => {
+    link.addEventListener('click', () => {
+        trackYandexGoal('telegram_click');
+    });
+});
+
+// Track pricing section view
+const pricingSection = document.getElementById('pricing');
+if (pricingSection) {
+    const pricingObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                trackYandexGoal('pricing_view');
+                pricingObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+    pricingObserver.observe(pricingSection);
+}
+
+// Track deep engagement (80% scroll)
+let scrollTracked = false;
+window.addEventListener('scroll', () => {
+    if (!scrollTracked) {
+        const scrollPercent = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+        if (scrollPercent >= 80) {
+            trackYandexGoal('deep_engagement');
+            scrollTracked = true;
+        }
+    }
 });
 
 // Optional: Function to send data to Telegram bot
