@@ -277,7 +277,7 @@ document.querySelectorAll('a[href^="tel:"]').forEach(link => {
 });
 
 // Track Telegram clicks (Yandex Metrica micro-conversion)
-document.querySelectorAll('a[href*="t.me/AVmathematics"]').forEach(link => {
+document.querySelectorAll('a[href*="t.me/"]').forEach(link => {
     link.addEventListener('click', () => {
         trackYandexGoal('telegram_click');
     });
