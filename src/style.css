@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@theme {
+  --color-smart-green: #7DA54E;
+  --color-smart-teal: #1A4D4D;
+  --color-smart-orange: #FF9F1C;
+  --color-smart-cream: #F5E6D3;
+  --color-smart-yellow: #FFD93D;
+  --color-smart-blue: #4A90E2;
+
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body: 'Open Sans', sans-serif;
+}
+
+/* Base styles */
+body {
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+html {
+  scroll-behavior: smooth;
+}
