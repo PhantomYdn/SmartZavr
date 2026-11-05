@@ -19,9 +19,9 @@ npm run preview  # serves dist/ on http://localhost:4173
 
 ## Deployment
 
-Production for https://smartzavr.ru is a server running nginx that deploys from the GitHub repository (`origin`, `PhantomYdn/SmartZavr`, branch `main`). Every push to `main` is a release: the server pulls `main`, runs `docker build` with the `Dockerfile` (Node 24 build stage, nginx serving `dist/`), and deploys the image only if the build succeeds. The pull-and-deploy hook lives on the server, not in this repository.
+Production for https://smartzavr.ru is a server running nginx that deploys from the GitLab repository (`gitlab`, `Orienteer/smartzavr`, branch `main`). Every push there is a release: the server pulls `main`, runs `docker build` with the `Dockerfile` (Node 24 build stage, nginx serving `dist/`), and deploys the image only if the build succeeds. The pull-and-deploy hook lives on the server, not in this repository.
 
-Before pushing to `main`:
+Before pushing `main` anywhere:
 
 1. `npm audit` is clean.
 2. `npm run build` succeeds and `npm run preview` looks right.
@@ -33,11 +33,11 @@ The same push runs `.github/workflows/static.yml`, which builds `dist/` with `--
 
 | Remote | URL | Role |
 |---|---|---|
-| origin | git@github.com:PhantomYdn/SmartZavr.git | Deploys production. Public |
-| upstream | https://gitflic.ru/project/smartzavr/smartzavr.git | Shared working repository |
-| gitlab | git@gitlab.com:Orienteer/smartzavr.git | Mirror |
+| gitlab | git@gitlab.com:Orienteer/smartzavr.git | **Deploys production** |
+| origin | git@github.com:PhantomYdn/SmartZavr.git | Public mirror, runs the Pages preview |
+| upstream | https://gitflic.ru/project/smartzavr/smartzavr.git | Shared working repository with Anna |
 
-Keep `origin/main` and `upstream/main` on the same commit.
+Push the same commit to all three. Production follows `gitlab/main`.
 
 ### Docker
 

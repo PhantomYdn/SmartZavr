@@ -4,7 +4,7 @@ Updated 2026-11-05.
 
 ## Status
 
-Live at https://smartzavr.ru, deployed from GitHub `main` to a dedicated nginx server. Single-page site, Russian, 8 sections, Vite 8 + Tailwind CSS v4 + vanilla JS.
+Live at https://smartzavr.ru, deployed from GitLab `main` to a dedicated nginx server (Docker build). Single-page site, Russian, 8 sections, Vite 8 + Tailwind CSS v4 + vanilla JS.
 
 ## Done
 

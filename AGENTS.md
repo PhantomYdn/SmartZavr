@@ -54,4 +54,4 @@ input-graphics/                # Original artwork, not shipped
 
 ## Deployment
 
-Push to `main` on GitHub. The production server for smartzavr.ru pulls, runs `docker build` with the Dockerfile, and deploys the image if the build succeeds. The same push also publishes a preview at https://phantomydn.github.io/SmartZavr/ via GitHub Actions. Details in `SETUP.md`.
+Push `main` to `gitlab` (production source), `origin` (GitHub mirror + Pages preview) and `upstream` (gitflic, shared). The production server pulls `gitlab/main`, runs `docker build` with the Dockerfile, and deploys the image if the build succeeds. The same push also publishes a preview at https://phantomydn.github.io/SmartZavr/ via GitHub Actions. Details in `SETUP.md`.
