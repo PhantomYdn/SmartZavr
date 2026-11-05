@@ -8,6 +8,36 @@ function trackYandexGoal(goalName) {
     }
 }
 
+// Leads go to a Google Apps Script web app that appends them to a Google Sheet.
+// The deployment must be published as "Execute as: Me" + "Who has access: Anyone",
+// otherwise Google answers 403 "Access Denied" and nothing reaches the sheet.
+const LEADS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxAZ7tRZYivDewq8lYxM7LyPidZbGNIkIR3S4-1U9AM0IXf09Vre3zLxl07oRqH1iLfDw/exec';
+
+// A text/plain body keeps this a "simple" request (no CORS preflight, which Apps
+// Script cannot answer). Apps Script then redirects to googleusercontent.com with
+// CORS headers, so the final response is readable and a failure is a real failure.
+async function submitLead(payload) {
+    const response = await fetch(LEADS_ENDPOINT, {
+        method: 'POST',
+        mode: 'cors',
+        redirect: 'follow',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload),
+    });
+    if (!response.ok) {
+        throw new Error(`Lead endpoint answered ${response.status}`);
+    }
+    const text = await response.text();
+    let data = null;
+    try { data = JSON.parse(text); } catch { /* script may answer with plain text */ }
+    if (data && (data.result === 'error' || data.status === 'error' || data.success === false)) {
+        throw new Error(data.error || data.message || 'Lead endpoint reported an error');
+    }
+    return data ?? text;
+}
+
+const FALLBACK_CONTACTS = 'Напишите нам в Telegram <a href="https://t.me/AVmathematics" class="underline">@AVmathematics</a> или позвоните <a href="tel:+79959191301" class="underline">+7 995 919-13-01</a>.';
+
 document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM loaded');
 
@@ -60,65 +90,48 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (contactForm) {
         contactForm.addEventListener('submit', async (e) => {
-            console.log('Form submit event fired');
             e.preventDefault();
 
             const formData = new FormData(contactForm);
             const name = formData.get('name');
             const phone = formData.get('phone');
             const grade = formData.get('grade');
+            const format = formData.get('format');
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
 
-            console.log('Form data:', { name, phone, grade });
-
-            // Google Apps Script Web App URL
-            const scriptUrl = 'https://script.google.com/macros/s/AKfycbxAZ7tRZYivDewq8lYxM7LyPidZbGNIkIR3S4-1U9AM0IXf09Vre3zLxl07oRqH1iLfDw/exec';
+            submitBtn.disabled = true;
+            formMessage.classList.add('hidden');
 
             try {
-                // Send data to Google Apps Script
-                const response = await fetch(scriptUrl, {
-                    method: 'POST',
-                    mode: 'no-cors', // Important for Google Apps Script
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        name: name,
-                        phone: phone,
-                        grade: grade,
-                        type: 'contact'
-                    })
-                });
+                await submitLead({ name, phone, grade, format, type: 'contact' });
 
-                // Note: With no-cors mode, we can't read the response
-                // But if fetch doesn't throw an error, the request was sent
-                console.log('Form submitted successfully');
-
-                // Track conversion goal
                 trackYandexGoal('contact_form_submit');
 
-                // Show success message
                 formMessage.textContent = `Спасибо, ${name}! Мы свяжемся с вами по номеру ${phone} в ближайшее время. Если в течение дня звонка не будет — напишите нам в Telegram @AVmathematics.`;
                 formMessage.className = 'mt-4 text-center text-smart-green font-semibold';
                 formMessage.classList.remove('hidden');
 
-                // Reset form
                 contactForm.reset();
 
-                // Hide message after 5 seconds
                 setTimeout(() => {
                     formMessage.classList.add('hidden');
-                }, 5000);
-
+                }, 8000);
             } catch (error) {
                 console.error('Error submitting form:', error);
-                formMessage.textContent = 'Произошла ошибка. Пожалуйста, попробуйте позже или свяжитесь с нами напрямую.';
+                formMessage.innerHTML = `Не получилось отправить заявку. ${FALLBACK_CONTACTS}`;
                 formMessage.className = 'mt-4 text-center text-red-600 font-semibold';
                 formMessage.classList.remove('hidden');
-
-                setTimeout(() => {
-                    formMessage.classList.add('hidden');
-                }, 5000);
+            } finally {
+                submitBtn.disabled = false;
             }
+        });
+
+        // "Выбрать" buttons in the pricing section preselect the tariff
+        const formatSelect = document.getElementById('contact-format');
+        document.querySelectorAll('[data-format]').forEach((btn) => {
+            btn.addEventListener('click', () => {
+                if (formatSelect) formatSelect.value = btn.dataset.format;
+            });
         });
     } else {
         console.error('Contact form not found');
@@ -186,40 +199,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Callback Form Submission using Google Apps Script
         callbackForm.addEventListener('submit', async (e) => {
-            console.log('Callback form submit event fired');
             e.preventDefault();
 
             const formData = new FormData(callbackForm);
             const name = formData.get('name');
             const phone = formData.get('phone');
+            const submitBtn = callbackForm.querySelector('button[type="submit"]');
 
-            console.log('Callback form data:', { name, phone });
-
-            // Google Apps Script Web App URL
-            const scriptUrl = 'https://script.google.com/macros/s/AKfycbxAZ7tRZYivDewq8lYxM7LyPidZbGNIkIR3S4-1U9AM0IXf09Vre3zLxl07oRqH1iLfDw/exec';
+            submitBtn.disabled = true;
+            callbackMessage.classList.add('hidden');
 
             try {
-                // Send data to Google Apps Script
-                const response = await fetch(scriptUrl, {
-                    method: 'POST',
-                    mode: 'no-cors', // Important for Google Apps Script
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        name: name,
-                        phone: phone,
-                        grade: '',
-                        type: 'callback'
-                    })
-                });
+                await submitLead({ name, phone, grade: '', format: '', type: 'callback' });
 
-                console.log('Callback form submitted successfully');
-
-                // Track conversion goal
                 trackYandexGoal('callback_form_submit');
 
-                // Show success message
                 callbackMessage.textContent = `Спасибо, ${name}! Мы перезвоним вам в ближайшее время.`;
                 callbackMessage.className = 'mt-4 text-center text-smart-green font-semibold';
                 callbackMessage.classList.remove('hidden');
@@ -230,16 +224,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     hideModal();
                     callbackMessage.classList.add('hidden');
                 }, 3000);
-
             } catch (error) {
                 console.error('Error submitting callback form:', error);
-                callbackMessage.textContent = 'Произошла ошибка. Пожалуйста, попробуйте позже.';
+                callbackMessage.innerHTML = `Не получилось отправить. ${FALLBACK_CONTACTS}`;
                 callbackMessage.className = 'mt-4 text-center text-red-600 font-semibold';
                 callbackMessage.classList.remove('hidden');
-
-                setTimeout(() => {
-                    callbackMessage.classList.add('hidden');
-                }, 3000);
+            } finally {
+                submitBtn.disabled = false;
             }
         });
     } else {
