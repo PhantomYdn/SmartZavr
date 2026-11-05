@@ -66,13 +66,13 @@
                 <a href="tel:+79959191301" class="text-smart-teal font-semibold hover:text-smart-green transition">
                     +7 995 919-13-01
                 </a>
-                <a href="#contact" class="bg-smart-orange text-white px-6 py-2 rounded-lg font-semibold hover:bg-opacity-90 transition shadow-md">
+                <a href="#contact" class="bg-smart-orange text-white px-6 py-2 rounded-lg font-semibold hover:bg-smart-orange/90 transition shadow-md">
                     Бесплатный урок
                 </a>
             </div>
 
             <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="md:hidden text-2xl focus:outline-none">
+            <button id="mobile-menu-btn" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-menu" class="md:hidden text-2xl focus:outline-none">
                 <span>☰</span>
             </button>
         </nav>
@@ -120,7 +120,7 @@
                  <div class="flex-1 flex justify-center">
                      <picture>
                          <source srcset="./assets/hero-character.webp" type="image/webp">
-                         <img src="./assets/hero-character-optimized.png" alt="УмноЗавр — математика и логика" class="w-full max-w-md" loading="lazy">
+                         <img src="./assets/hero-character-optimized.png" alt="УмноЗавр — математика и логика" class="w-full max-w-md" width="1024" height="1024" fetchpriority="high">
                      </picture>
                  </div>
             </div>
@@ -203,7 +203,7 @@
                             Индивидуальная программа
                         </li>
                     </ul>
-                    <a href="#contact" class="block w-full bg-smart-green text-white text-center py-3 rounded-lg font-semibold hover:bg-opacity-90 transition">
+                    <a href="#contact" class="block w-full bg-smart-green text-white text-center py-3 rounded-lg font-semibold hover:bg-smart-green/90 transition">
                         Выбрать
                     </a>
                 </div>
@@ -229,7 +229,7 @@
                             Оптимальная цена
                         </li>
                     </ul>
-                    <a href="#contact" class="block w-full bg-smart-orange text-white text-center py-3 rounded-lg font-semibold hover:bg-opacity-90 transition">
+                    <a href="#contact" class="block w-full bg-smart-orange text-white text-center py-3 rounded-lg font-semibold hover:bg-smart-orange/90 transition">
                         Выбрать
                     </a>
                 </div>
@@ -252,7 +252,7 @@
                             Поддержка куратора
                         </li>
                     </ul>
-                    <a href="#contact" class="block w-full bg-smart-green text-white text-center py-3 rounded-lg font-semibold hover:bg-opacity-90 transition">
+                    <a href="#contact" class="block w-full bg-smart-green text-white text-center py-3 rounded-lg font-semibold hover:bg-smart-green/90 transition">
                         Выбрать
                     </a>
                 </div>
@@ -342,44 +342,44 @@
             <div class="space-y-4">
                 <!-- FAQ 1 -->
                 <div class="bg-white rounded-lg shadow-sm">
-                    <button class="faq-question w-full text-left p-6 font-semibold text-smart-teal flex justify-between items-center hover:bg-gray-50 transition">
+                    <button type="button" aria-expanded="false" aria-controls="faq-answer-1" class="faq-question w-full text-left p-6 font-semibold text-smart-teal flex justify-between items-center hover:bg-gray-50 transition">
                         <span>Какой формат занятий?</span>
-                        <span class="text-2xl">+</span>
+                        <span class="text-2xl" aria-hidden="true">+</span>
                     </button>
-                    <div class="faq-answer hidden p-6 pt-0 text-gray-700 leading-relaxed">
+                    <div id="faq-answer-1" class="faq-answer hidden p-6 pt-0 text-gray-700 leading-relaxed">
                         Занятия проходят онлайн в Zoom или Google Meet. Вы можете заниматься индивидуально, в группе или выбрать формат кураторства с готовыми видеоуроками.
                     </div>
                 </div>
 
                 <!-- FAQ 2 -->
                 <div class="bg-white rounded-lg shadow-sm">
-                    <button class="faq-question w-full text-left p-6 font-semibold text-smart-teal flex justify-between items-center hover:bg-gray-50 transition">
+                    <button type="button" aria-expanded="false" aria-controls="faq-answer-2" class="faq-question w-full text-left p-6 font-semibold text-smart-teal flex justify-between items-center hover:bg-gray-50 transition">
                         <span>Можно ли попробовать бесплатно?</span>
-                        <span class="text-2xl">+</span>
+                        <span class="text-2xl" aria-hidden="true">+</span>
                     </button>
-                    <div class="faq-answer hidden p-6 pt-0 text-gray-700 leading-relaxed">
+                    <div id="faq-answer-2" class="faq-answer hidden p-6 pt-0 text-gray-700 leading-relaxed">
                         Да! Первый урок/диагностика всегда бесплатный. На нём мы познакомимся, определим уровень знаний и составим индивидуальный план обучения.
                     </div>
                 </div>
 
                 <!-- FAQ 3 -->
                 <div class="bg-white rounded-lg shadow-sm">
-                    <button class="faq-question w-full text-left p-6 font-semibold text-smart-teal flex justify-between items-center hover:bg-gray-50 transition">
+                    <button type="button" aria-expanded="false" aria-controls="faq-answer-3" class="faq-question w-full text-left p-6 font-semibold text-smart-teal flex justify-between items-center hover:bg-gray-50 transition">
                         <span>Для какого возраста подходит?</span>
-                        <span class="text-2xl">+</span>
+                        <span class="text-2xl" aria-hidden="true">+</span>
                     </button>
-                    <div class="faq-answer hidden p-6 pt-0 text-gray-700 leading-relaxed">
+                    <div id="faq-answer-3" class="faq-answer hidden p-6 pt-0 text-gray-700 leading-relaxed">
                         Занятия подходят для школьников с 5 по 11 класс. Программа адаптируется под возраст и уровень подготовки ученика.
                     </div>
                 </div>
 
                 <!-- FAQ 4 -->
                 <div class="bg-white rounded-lg shadow-sm">
-                    <button class="faq-question w-full text-left p-6 font-semibold text-smart-teal flex justify-between items-center hover:bg-gray-50 transition">
+                    <button type="button" aria-expanded="false" aria-controls="faq-answer-4" class="faq-question w-full text-left p-6 font-semibold text-smart-teal flex justify-between items-center hover:bg-gray-50 transition">
                         <span>Как проходит оплата?</span>
-                        <span class="text-2xl">+</span>
+                        <span class="text-2xl" aria-hidden="true">+</span>
                     </button>
-                     <div class="faq-answer hidden p-6 pt-0 text-gray-700 leading-relaxed">
+                     <div id="faq-answer-4" class="faq-answer hidden p-6 pt-0 text-gray-700 leading-relaxed">
                          <p>Оплата принимается удобными способами: банковской картой или через систему быстрых платежей (СБП).</p>
 
                          <p>Мы работаем по помесячной оплате для максимальной гибкости.</p>
@@ -397,22 +397,22 @@
 
                 <!-- FAQ 5 -->
                 <div class="bg-white rounded-lg shadow-sm">
-                    <button class="faq-question w-full text-left p-6 font-semibold text-smart-teal flex justify-between items-center hover:bg-gray-50 transition">
+                    <button type="button" aria-expanded="false" aria-controls="faq-answer-5" class="faq-question w-full text-left p-6 font-semibold text-smart-teal flex justify-between items-center hover:bg-gray-50 transition">
                         <span>Как часто проходят занятия?</span>
-                        <span class="text-2xl">+</span>
+                        <span class="text-2xl" aria-hidden="true">+</span>
                     </button>
-                    <div class="faq-answer hidden p-6 pt-0 text-gray-700 leading-relaxed">
+                    <div id="faq-answer-5" class="faq-answer hidden p-6 pt-0 text-gray-700 leading-relaxed">
                         Обычно 2-3 раза в неделю по 60 минут. График подбирается индивидуально с учётом вашей занятости.
                     </div>
                 </div>
 
                 <!-- FAQ 6 -->
                 <div class="bg-white rounded-lg shadow-sm">
-                    <button class="faq-question w-full text-left p-6 font-semibold text-smart-teal flex justify-between items-center hover:bg-gray-50 transition">
+                    <button type="button" aria-expanded="false" aria-controls="faq-answer-6" class="faq-question w-full text-left p-6 font-semibold text-smart-teal flex justify-between items-center hover:bg-gray-50 transition">
                         <span>Что если не подойдёт?</span>
-                        <span class="text-2xl">+</span>
+                        <span class="text-2xl" aria-hidden="true">+</span>
                     </button>
-                    <div class="faq-answer hidden p-6 pt-0 text-gray-700 leading-relaxed">
+                    <div id="faq-answer-6" class="faq-answer hidden p-6 pt-0 text-gray-700 leading-relaxed">
                         Вы можете прекратить занятия в любой момент. Никаких обязательств и долгосрочных контрактов. Первый урок/диагностика бесплатный — попробуйте без риска!
                     </div>
                 </div>
@@ -430,23 +430,23 @@
                 Оставьте заявку, и мы свяжемся с вами
             </p>
 
-            <div class="grid md:grid-cols-2 gap-8">
+            <div class="grid md:grid-cols-2 gap-8 md:items-start">
                 <!-- Contact Form -->
                 <div class="bg-smart-cream rounded-xl p-8 shadow-lg">
                      <form id="contact-form" class="space-y-4">
                          <div>
-                             <label class="block text-smart-teal font-semibold mb-2">Ваше имя *</label>
-                             <input type="text" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-smart-green focus:ring-2 focus:ring-smart-green focus:outline-none transition">
+                             <label for="contact-name" class="block text-smart-teal font-semibold mb-2">Ваше имя *</label>
+                             <input id="contact-name" type="text" name="name" autocomplete="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-smart-green focus:ring-2 focus:ring-smart-green focus:outline-none transition">
                          </div>
 
                          <div>
-                             <label class="block text-smart-teal font-semibold mb-2">Телефон *</label>
-                             <input type="tel" name="phone" required placeholder="+7 (___) ___-__-__" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-smart-green focus:ring-2 focus:ring-smart-green focus:outline-none transition">
+                             <label for="contact-phone" class="block text-smart-teal font-semibold mb-2">Телефон *</label>
+                             <input id="contact-phone" type="tel" name="phone" autocomplete="tel" required placeholder="+7 (___) ___-__-__" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-smart-green focus:ring-2 focus:ring-smart-green focus:outline-none transition">
                          </div>
 
                          <div>
-                             <label class="block text-smart-teal font-semibold mb-2">Класс ребёнка</label>
-                             <select name="grade" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-smart-green focus:ring-2 focus:ring-smart-green focus:outline-none transition">
+                             <label for="contact-grade" class="block text-smart-teal font-semibold mb-2">Класс ребёнка</label>
+                             <select id="contact-grade" name="grade" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-smart-green focus:ring-2 focus:ring-smart-green focus:outline-none transition">
                                  <option value="">Выберите класс</option>
                                  <option value="5">5 класс</option>
                                  <option value="6">6 класс</option>
@@ -459,8 +459,8 @@
                          </div>
 
                          <div class="flex items-start">
-                             <input type="checkbox" name="consent" required class="mt-1 mr-2">
-                             <label class="text-sm text-gray-600">
+                             <input id="contact-consent" type="checkbox" name="consent" required class="mt-1 mr-2">
+                             <label for="contact-consent" class="text-sm text-gray-600">
                                  Я согласен на обработку персональных данных
                              </label>
                          </div>
@@ -556,30 +556,30 @@
     </footer>
 
     <!-- Floating "Call Me Back" Button -->
-    <button id="callback-btn" class="fixed bottom-6 right-6 bg-smart-orange text-white w-14 h-14 rounded-full shadow-2xl hover:scale-110 transition-transform z-40 flex items-center justify-center text-2xl">
+    <button id="callback-btn" type="button" aria-label="Заказать обратный звонок" class="fixed bottom-6 right-6 bg-smart-orange text-white w-14 h-14 rounded-full shadow-2xl hover:scale-110 transition-transform z-40 flex items-center justify-center text-2xl">
         📞
     </button>
 
     <!-- Callback Modal -->
-    <div id="callback-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+    <div id="callback-modal" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="callback-title">
         <div class="bg-white rounded-xl p-8 max-w-md w-full relative">
-            <button id="close-modal" class="absolute top-4 right-4 text-2xl text-gray-600 hover:text-gray-800">&times;</button>
+            <button id="close-modal" type="button" aria-label="Закрыть" class="absolute top-4 right-4 text-2xl text-gray-600 hover:text-gray-800">&times;</button>
 
-            <h3 class="text-2xl font-bold text-smart-teal mb-4">Перезвоним вам!</h3>
+            <h3 id="callback-title" class="text-2xl font-bold text-smart-teal mb-4">Перезвоним вам!</h3>
             <p class="text-gray-600 mb-6">Оставьте свой номер, и я свяжусь с вами в ближайшее время</p>
 
              <form id="callback-form" class="space-y-4">
                  <div>
-                     <label class="block text-smart-teal font-semibold mb-2">Ваше имя *</label>
-                     <input type="text" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-smart-green focus:ring-2 focus:ring-smart-green focus:outline-none">
+                     <label for="callback-name" class="block text-smart-teal font-semibold mb-2">Ваше имя *</label>
+                     <input id="callback-name" type="text" name="name" autocomplete="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-smart-green focus:ring-2 focus:ring-smart-green focus:outline-none">
                  </div>
 
                  <div>
-                     <label class="block text-smart-teal font-semibold mb-2">Телефон *</label>
-                     <input type="tel" name="phone" required placeholder="+7 (___) ___-__-__" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-smart-green focus:ring-2 focus:ring-smart-green focus:outline-none">
+                     <label for="callback-phone" class="block text-smart-teal font-semibold mb-2">Телефон *</label>
+                     <input id="callback-phone" type="tel" name="phone" autocomplete="tel" required placeholder="+7 (___) ___-__-__" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-smart-green focus:ring-2 focus:ring-smart-green focus:outline-none">
                  </div>
 
-                 <button type="submit" class="w-full bg-smart-orange text-white py-3 rounded-lg font-semibold hover:bg-opacity-90 transition shadow-lg">
+                 <button type="submit" class="w-full bg-smart-orange text-white py-3 rounded-lg font-semibold hover:bg-smart-orange/90 transition shadow-lg">
                      Отправить
                  </button>
              </form>

@@ -17,7 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (mobileMenuBtn && mobileMenu) {
         mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+            const open = mobileMenu.classList.toggle('hidden') === false;
+            mobileMenuBtn.setAttribute('aria-expanded', String(open));
+            mobileMenuBtn.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');
         });
 
         // Close mobile menu when clicking on a link
@@ -25,6 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileMenuLinks.forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                mobileMenuBtn.setAttribute('aria-label', 'Открыть меню');
             });
         });
     }
@@ -39,6 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Toggle answer
             answer.classList.toggle('hidden');
+            question.setAttribute('aria-expanded', String(!answer.classList.contains('hidden')));
 
             // Toggle icon
             if (answer.classList.contains('hidden')) {
@@ -92,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 trackYandexGoal('contact_form_submit');
 
                 // Show success message
-                formMessage.textContent = `Спасибо, ${name}! Мы свяжемся с вами по номеру ${phone} в ближайшее время.`;
+                formMessage.textContent = `Спасибо, ${name}! Мы свяжемся с вами по номеру ${phone} в ближайшее время. Если в течение дня звонка не будет — напишите нам в Telegram @AVmathematics.`;
                 formMessage.className = 'mt-4 text-center text-smart-green font-semibold';
                 formMessage.classList.remove('hidden');
 
@@ -127,18 +132,55 @@ document.addEventListener('DOMContentLoaded', () => {
     const callbackMessage = document.getElementById('callback-message');
 
     if (callbackBtn && callbackModal && closeModal && callbackForm && callbackMessage) {
-        callbackBtn.addEventListener('click', () => {
-            callbackModal.classList.remove('hidden');
-        });
+        let modalOpener = null;
+        const focusableSelector = 'input, select, textarea, button, a[href]';
 
-        closeModal.addEventListener('click', () => {
+        const openModal = () => {
+            modalOpener = document.activeElement;
+            callbackModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            callbackForm.querySelector('input')?.focus();
+        };
+
+        const hideModal = () => {
             callbackModal.classList.add('hidden');
-        });
+            document.body.style.overflow = '';
+            if (modalOpener && typeof modalOpener.focus === 'function') {
+                modalOpener.focus();
+            }
+        };
+
+        callbackBtn.addEventListener('click', openModal);
+        closeModal.addEventListener('click', hideModal);
 
         // Close modal when clicking outside
         callbackModal.addEventListener('click', (e) => {
             if (e.target === callbackModal) {
-                callbackModal.classList.add('hidden');
+                hideModal();
+            }
+        });
+
+        // Escape closes, Tab stays inside the dialog
+        document.addEventListener('keydown', (e) => {
+            if (callbackModal.classList.contains('hidden')) return;
+            if (e.key === 'Escape') {
+                e.preventDefault();
+                hideModal();
+                return;
+            }
+            if (e.key === 'Tab') {
+                const items = [...callbackModal.querySelectorAll(focusableSelector)]
+                    .filter(el => !el.disabled && el.offsetParent !== null);
+                if (items.length === 0) return;
+                const first = items[0];
+                const last = items[items.length - 1];
+                if (e.shiftKey && document.activeElement === first) {
+                    e.preventDefault();
+                    last.focus();
+                } else if (!e.shiftKey && document.activeElement === last) {
+                    e.preventDefault();
+                    first.focus();
+                }
             }
         });
 
@@ -185,7 +227,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 callbackForm.reset();
 
                 setTimeout(() => {
-                    callbackModal.classList.add('hidden');
+                    hideModal();
                     callbackMessage.classList.add('hidden');
                 }, 3000);
 
