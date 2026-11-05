@@ -240,7 +240,7 @@ Available:
 Needed:
 - [x] Optimized web versions (WebP hero, 125 KB)
 - [x] Favicon set (ico, svg, png, apple-touch, android-chrome)
-- [x] OG image for social sharing (logo)
+- [x] OG image for social sharing (`public/og-image.jpg`, 1200×630)
 - [ ] Smaller PNG fallback for the hero (currently 1.7 MB)
 
 # TODO list
@@ -257,6 +257,12 @@ Needed:
 - [x] ~~Deploy: nginx server, HTTPS, deploys from GitHub main~~
 - [x] ~~Migrate to Vite + Tailwind CSS v4~~ (Dockerfile now multi-stage: build + nginx)
 - [x] ~~True-up 2026-11-05: dependencies current, audit clean, favicon/manifest/logo URLs fixed, docs updated~~
+- [x] ~~Teacher section with Anna's photo and profi.ru bio, real profi.ru reviews, privacy policy page, tariff carried into the form, honest form errors (2026-11-05)~~
+- [ ] **Anna: redeploy the Apps Script web app with access "Anyone"** — the endpoint answers 403, forms do not reach the sheet (see `SETUP.md` → Forms)
+- [ ] Касса: payment page (ЮKassa / CloudPayments / Т-Банк) once acquiring is set up; needs a public offer (оферта) page
+- [ ] Describe what Кураторство includes (duration, lessons, homework checks)
+- [ ] Replace emoji icons with brand stickers from `input-graphics/`; hero poster without text
+- [ ] Self-host Montserrat and Open Sans
 - [ ] Submit to Yandex Webmaster and Google Search Console (status unknown)
 - [ ] Smaller PNG fallback for the hero image
 - [ ] Add a linter (ESLint, html-validate) and run it in the Pages workflow

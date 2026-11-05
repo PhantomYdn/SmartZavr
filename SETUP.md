@@ -74,9 +74,13 @@ Hashed files under `/assets/` can be cached forever. `index.html` and the files 
 
 ## Forms
 
-Both the contact form and the callback modal POST JSON to a Google Apps Script web app. The endpoint is the `scriptUrl` constant in `src/main.js` (it appears twice, once per form). Fields: `name`, `phone`, `grade`, `type` (`contact` or `callback`). Successful submissions fire the Metrika goals `contact_form_submit` / `callback_form_submit`.
+Both the contact form and the callback modal call `submitLead()` in `src/main.js`, which POSTs a JSON string to the Google Apps Script web app at `LEADS_ENDPOINT`. Fields: `name`, `phone`, `grade`, `format` (`individual` / `group` / `curated` / empty), `type` (`contact` or `callback`). Successful submissions fire the Metrika goals `contact_form_submit` / `callback_form_submit`; failures show a message with the Telegram and phone fallbacks.
 
-To change the backend, replace `scriptUrl` and keep the request shape, or adapt the `fetch` call in both handlers.
+The request is sent as `text/plain` on purpose: that keeps it a "simple" request without a CORS preflight, which Apps Script cannot answer. Apps Script then redirects to `script.googleusercontent.com` with CORS headers, so the response is readable and a failure surfaces to the user instead of a fake "success".
+
+**Deployment requirement.** The web app must be deployed with *Execute as: Me* and *Who has access: Anyone*. If it is deployed for "Anyone with Google account" or only the owner, Google answers `403` with an "Access Denied / You need access" page and nothing reaches the sheet. Quick check from a terminal: `curl -sI -L <LEADS_ENDPOINT>` should end in `200`, not `403`. On 2026-11-05 the endpoint answered 403, which matches Anna's report that the form "does not work".
+
+To change the backend, replace `LEADS_ENDPOINT` and keep the request shape, or adapt `submitLead()`.
 
 ## Analytics
 
@@ -84,12 +88,13 @@ Yandex Metrika counter `104701968` is loaded from the `<head>` of `src/index.htm
 
 ## SEO files
 
-`public/robots.txt` and `public/sitemap.xml` are copied to the site root. Bump `lastmod` in the sitemap when content changes. JSON-LD (EducationalOrganization) and Open Graph tags are at the bottom and top of `src/index.html`.
+`public/robots.txt` and `public/sitemap.xml` are copied to the site root. Bump `lastmod` in the sitemap when content changes. `src/privacy.html` is a second Vite entry (see `vite.config.js`), served at `/privacy.html` with `noindex`. JSON-LD (EducationalOrganization) and Open Graph tags are at the bottom and top of `src/index.html`.
 
 ## Assets
 
 - `src/assets/`: images imported from HTML get a content hash in the filename. Use for anything only referenced from `index.html`.
-- `public/`: fixed URLs. Favicons, `site.webmanifest`, `logo.png` (referenced by absolute URL from JSON-LD and `og:image`).
+- `public/`: fixed URLs. Favicons, `site.webmanifest`, `logo.png` (JSON-LD), `og-image.jpg` (1200×630, `og:image`).
+- Teacher portrait: `src/assets/anna.webp` + `anna.jpg` (800×1200, from Anna's original `FPD_7953.jpg`).
 - `input-graphics/`: original artwork. Not shipped. Optimize before copying into `src/assets/` (`cwebp -q 80 in.png -o out.webp`).
 
 ## Testing checklist

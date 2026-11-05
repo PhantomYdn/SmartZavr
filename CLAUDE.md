@@ -18,11 +18,12 @@ Keep a dev server running in the background during a session so the site can be 
 
 | Path | Purpose |
 |---|---|
-| `src/index.html` | The whole SPA, all 8 sections inline, plus Yandex Metrika and JSON-LD |
+| `src/index.html` | The whole SPA, all 9 sections inline, plus Yandex Metrika and JSON-LD |
+| `src/privacy.html` | Privacy policy, second Vite entry, `noindex` |
 | `src/main.js` | Menu, FAQ accordion, forms (Google Apps Script), callback modal, Metrika goals |
 | `src/style.css` | Tailwind import plus `@theme` tokens (brand colors, fonts) |
-| `src/assets/` | Images that Vite hashes (hero character) |
-| `public/` | Files served at a fixed URL: favicons, `site.webmanifest`, `logo.png`, `robots.txt`, `sitemap.xml` |
+| `src/assets/` | Images that Vite hashes (hero character, teacher portrait) |
+| `public/` | Files served at a fixed URL: favicons, `site.webmanifest`, `logo.png`, `og-image.jpg`, `robots.txt`, `sitemap.xml` |
 | `Dockerfile` | What production builds: Node 24 build stage, nginx serving `dist/` |
 | `.github/workflows/static.yml` | Builds `dist/` and publishes a GitHub Pages preview |
 | `input-graphics/` | Original artwork, not shipped |
@@ -42,4 +43,4 @@ Documentation: `README.md` (business goals, design system, TODO), `SETUP.md` (de
 **Contact**: Phone +79959191301, Email Smartzavr@gmail.com, Telegram @AVmathematics, channel @smartzavr
 **Pricing**: Individual 5000₽, Group 2500₽, Curated 15000₽
 **Analytics**: Yandex Metrika counter 104701968, goals sent via `trackYandexGoal()` in `src/main.js`
-**Forms**: POST to a Google Apps Script web app, URL in `src/main.js`
+**Forms**: `submitLead()` in `src/main.js` POSTs text/plain JSON to a Google Apps Script web app (`LEADS_ENDPOINT`); the deployment must allow access "Anyone" or Google answers 403
