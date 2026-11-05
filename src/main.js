@@ -308,25 +308,3 @@ window.addEventListener('scroll', () => {
         }
     }
 });
-
-// Optional: Function to send data to Telegram bot
-function sendToTelegram(name, phone, grade = '') {
-    const botToken = 'YOUR_BOT_TOKEN'; // Replace with your bot token
-    const chatId = 'YOUR_CHAT_ID'; // Replace with your chat ID
-
-    const message = `🆕 Новая заявка!\n\nИмя: ${name}\nТелефон: ${phone}${grade ? `\nКласс: ${grade}` : ''}`;
-
-    fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            chat_id: chatId,
-            text: message,
-        }),
-    })
-    .then(response => response.json())
-    .then(data => console.log('Telegram message sent:', data))
-    .catch(error => console.error('Error sending to Telegram:', error));
-}
