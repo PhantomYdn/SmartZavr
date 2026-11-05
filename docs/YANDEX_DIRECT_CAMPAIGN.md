@@ -569,7 +569,7 @@ Trigger: Scroll depth ≥80%
 Value: Low priority
 ```
 
-### Implementation Code (Add to js/main.js)
+### Implementation Code (Add to src/main.js)
 
 ```javascript
 // Yandex Metrica goal tracking

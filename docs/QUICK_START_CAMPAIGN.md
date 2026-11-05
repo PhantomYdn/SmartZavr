@@ -10,7 +10,7 @@
 
 ### Step 1: Configure Yandex Metrica Goals (30 minutes)
 
-**Already done:** ✅ Tracking code is implemented in js/main.js
+**Already done:** ✅ Tracking code is implemented in src/main.js
 
 **Now do this:**
 1. Go to https://metrica.yandex.ru
@@ -346,7 +346,7 @@ All campaign materials are in your repository:
 │   ├── KEYWORDS_IMPORT.csv          ← Import these keywords
 │   ├── NEGATIVE_KEYWORDS.txt        ← Add these negatives
 │   └── QUICK_START_CAMPAIGN.md      ← You are here!
-├── js/main.js                        ← Tracking code (already updated)
+├── src/main.js                        ← Tracking code (already updated)
 └── index.html                        ← Your landing page
 ```
 
@@ -371,7 +371,7 @@ All campaign materials are in your repository:
 ## 📞 Need Help?
 
 - Campaign issues: Check docs/YANDEX_DIRECT_CAMPAIGN.md (troubleshooting section)
-- Technical issues: Review js/main.js tracking code
+- Technical issues: Review src/main.js tracking code
 - Strategy questions: Re-read the full campaign document
 
 **Remember:** First 2 weeks are learning. Be patient, monitor closely, optimize daily.

@@ -201,7 +201,7 @@ Weekend: Monitor, respond to leads only
 ## 📞 Support
 
 **Technical Issues:**
-- Tracking not working: Check `../js/main.js` implementation
+- Tracking not working: Check `src/main.js` implementation
 - Form not submitting: Test on localhost first
 - Metrica goals not firing: Check browser console for errors
 

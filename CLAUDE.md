@@ -1,68 +1,44 @@
 # Claude Entry Point
 
+Static marketing site for smartzavr.ru (Russian online math tutoring). Vite 8 + Tailwind CSS v4 + vanilla JS. No framework, no backend.
+
 ## Quick Start
 
-1. Read `README.md` for project overview and design system
-2. Check TODO list in `README.md` for current status
-3. See `PROJECT_SUMMARY.md` for complete project state
-4. See `SETUP.md` for deployment instructions
+```bash
+nvm use            # Node 24, see .nvmrc
+npm ci
+npm run dev        # http://localhost:5173, hot reload
+npm run build      # -> dist/
+npm run preview    # serve dist/ locally
+```
 
-## Project Files
+Keep a dev server running in the background during a session so the site can be checked manually.
 
-### Documentation
-- `README.md` - Business goals, products, tech stack, design system
-- `competitors.md` - Market analysis (5 competitors)
-- `structure.md` - Site architecture (8 sections)
-- `seo.md` - SEO strategy, keywords, meta tags
-- `SETUP.md` - Deployment & configuration guide
-- `PROJECT_SUMMARY.md` - Current status & next steps
-- `docs/YANDEX_DIRECT_CAMPAIGN.md` - Complete Yandex Direct strategy
-- `docs/QUICK_START_CAMPAIGN.md` - Launch guide for advertising
-- `docs/KEYWORDS_IMPORT.csv` - Campaign keywords
-- `docs/NEGATIVE_KEYWORDS.txt` - Negative keyword list
+## Layout
 
-### Code
-- `index.html` - Main SPA file (complete)
-- `js/main.js` - All interactivity (forms, navigation, FAQ)
-- `assets/` - Graphics (logo, hero character)
-- `Dockerfile` - Container deployment
+| Path | Purpose |
+|---|---|
+| `src/index.html` | The whole SPA, all 8 sections inline, plus Yandex Metrika and JSON-LD |
+| `src/main.js` | Menu, FAQ accordion, forms (Google Apps Script), callback modal, Metrika goals |
+| `src/style.css` | Tailwind import plus `@theme` tokens (brand colors, fonts) |
+| `src/assets/` | Images that Vite hashes (hero character) |
+| `public/` | Files served at a fixed URL: favicons, `site.webmanifest`, `logo.png`, `robots.txt`, `sitemap.xml` |
+| `.github/workflows/static.yml` | Builds `dist/` and publishes a GitHub Pages preview |
+| `input-graphics/` | Original artwork, not shipped |
 
-### SEO
-- `robots.txt`, `sitemap.xml` - Search engine files
+Documentation: `README.md` (business goals, design system, TODO), `SETUP.md` (dev, deploy, forms, analytics), `PROJECT_SUMMARY.md` (status), `structure.md`, `seo.md`, `competitors.md`, `docs/` (Yandex Direct campaign).
 
-## Current Status
+## Rules
 
-**MVP Complete** - Site is functional and ready for deployment
-
-### Implemented
-✅ Full SPA with 8 sections
-✅ Responsive design (mobile/tablet/desktop)
-✅ Lead capture forms + callback modal
-✅ SEO optimization (meta tags, structured data)
-✅ Design system with SmartZavr branding
-✅ Docker deployment ready
-
-### Before Launch
-- Configure form backend (Telegram bot or Formspree)
-- Add analytics (Yandex Metrica recommended)
-- Optimize images (convert to WebP)
-- Test on real devices
-- Set up hosting + SSL
+- **The GitHub repository is public.** Never commit credentials, tokens, `.http` scratch files or machine-specific config. `.mcp.json` and `.claude/settings.local.json` are ignored on purpose.
+- Production (smartzavr.ru) deploys from GitHub `main`. Treat every push to `main` as a release: build locally first, check `npm audit`.
+- Anything that needs a stable URL (favicon, manifest, logo referenced from JSON-LD or og:image) goes in `public/`, not `src/assets/`.
+- Brand colors and fonts live only in the `@theme` block of `src/style.css`.
+- Update the TODO list in `README.md` when finishing a task.
 
 ## Key Info
 
-**Contact**: Phone +79959191301, Email Smartzavr@gmail.com, Telegram @AVmathematics
+**Contact**: Phone +79959191301, Email Smartzavr@gmail.com, Telegram @AVmathematics, channel @smartzavr
 **Pricing**: Individual 5000₽, Group 2500₽, Curated 15000₽
-**Stack**: HTML + Tailwind CSS (CDN) + Vanilla JS
-**Target**: Russian market, parents & kids 10+
-
-## Common Tasks
-
-**Update content**: Edit `index.html` sections directly
-**Change colors**: Modify Tailwind config in `<head>` of index.html
-**Update pricing**: Edit pricing section in index.html
-**Add testimonial**: Add card in testimonials section
-**Configure forms**: Update `js/main.js` with backend credentials
-
-Always update `README.md` TODO list when completing tasks.
-- Remember to run backgroun task to have a site available for local manual testing.
+**Analytics**: Yandex Metrika counter 104701968, goals sent via `trackYandexGoal()` in `src/main.js`
+**Forms**: POST to a Google Apps Script web app, URL in `src/main.js`

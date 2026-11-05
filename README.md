@@ -42,17 +42,20 @@ There should be such lead capture elements:
 ## Project Files
 
 For detailed information, see:
-* **CLAUDE.md** - Entry point for AI sessions
-* **PROJECT_SUMMARY.md** - Complete project status & overview
-* **SETUP.md** - Deployment & configuration guide
+* **CLAUDE.md** - Entry point for AI sessions, layout and rules
+* **AGENTS.md** - Commands and where to change things
+* **SETUP.md** - Development, deployment, forms, analytics
+* **PROJECT_SUMMARY.md** - Current status and open items
 * **competitors.md** - Market analysis
 * **structure.md** - Site architecture
 * **seo.md** - SEO strategy
+* **docs/** - Yandex Direct campaign
 
 Resources:
 * `./input-graphics/previoussite.png` - previous site reference
-* `./input-graphics/SmartZavrGraphics/` - SmartZavr character graphics
-* `./assets/` - Web-ready graphics (logo, hero)
+* `./input-graphics/SmartZavrGraphics/` - SmartZavr character graphics (source)
+* `./src/assets/` - hashed web graphics (hero character)
+* `./public/` - fixed-URL files (favicons, manifest, logo, robots, sitemap)
 
 ## Design System
 
@@ -235,10 +238,10 @@ Available:
 - [x] Previous site reference
 
 Needed:
-- [ ] Optimized web versions (WebP format)
-- [ ] Favicon (from logo)
-- [ ] OG image for social sharing
-- [ ] Mobile-optimized versions
+- [x] Optimized web versions (WebP hero, 125 KB)
+- [x] Favicon set (ico, svg, png, apple-touch, android-chrome)
+- [x] OG image for social sharing (logo)
+- [ ] Smaller PNG fallback for the hero (currently 1.7 MB)
 
 # TODO list
 
@@ -249,23 +252,25 @@ Needed:
 - [x] ~~Design system: Analyze SmartZavr graphics, propose color palette, typography, component styles. Document findings in this file under new "Design System" section~~
 - [x] ~~Implement MVP: Build HTML structure, Tailwind styling, basic JS interactivity, lead capture forms~~
 - [x] ~~SEO implementation: Add meta tags, structured data, optimize performance, test on mobile~~
-- [x] ~~Create a Dockerfile which will allow to run this static site in a container~~
-- [ ] QA & Deploy: Cross-browser testing, performance audit, deploy to hosting
+- [x] ~~Forms: Google Apps Script backend~~
+- [x] ~~Analytics: Yandex Metrika with conversion goals~~
+- [x] ~~Deploy: nginx server, HTTPS, deploys from GitHub main~~
+- [x] ~~Migrate to Vite + Tailwind CSS v4~~ (Dockerfile retired)
+- [x] ~~True-up 2026-11-05: dependencies current, audit clean, favicon/manifest/logo URLs fixed, docs updated~~
+- [ ] Submit to Yandex Webmaster and Google Search Console (status unknown)
+- [ ] Smaller PNG fallback for the hero image
+- [ ] Add a linter (ESLint, html-validate) and run it in the Pages workflow
 
 # Quick Reference
 
 ## Run Locally
 
 ```bash
-# Python
-python3 -m http.server 8000
-
-# Docker
-docker build -t smartzavr .
-docker run -d -p 80:80 smartzavr
+nvm use
+npm ci
+npm run dev        # http://localhost:5173
+npm run build && npm run preview
 ```
-
-Visit http://localhost:8000 or http://localhost
 
 ## Site Sections
 
@@ -279,22 +284,20 @@ Visit http://localhost:8000 or http://localhost
 
 ## Key Files to Edit
 
-- **Content**: `index.html` (all sections inline)
-- **Behavior**: `js/main.js` (forms, navigation)
-- **Graphics**: `assets/` directory
-- **Forms**: Configure backend in `js/main.js` (see SETUP.md)
+- **Content**: `src/index.html` (all sections inline)
+- **Behavior**: `src/main.js` (forms, navigation, Metrika goals)
+- **Theme**: `@theme` block in `src/style.css`
+- **Fixed-URL files**: `public/`
+- **Forms**: `scriptUrl` in `src/main.js` (see SETUP.md)
 
-## Before Launch Checklist
+## Before Pushing to main
 
-- [ ] Configure form submission backend
-- [ ] Add Yandex Metrica tracking code
-- [ ] Optimize images to WebP format
-- [ ] Replace favicon.ico placeholder
-- [ ] Test all contact links work
-- [ ] Proofread all Russian text
-- [ ] Test on mobile devices
-- [ ] Set up SSL certificate
-- [ ] Submit to Yandex Webmaster
-- [ ] Submit to Google Search Console
+The GitHub repository is public and production deploys from it.
 
-See **SETUP.md** for detailed instructions.
+- [ ] `npm audit` clean
+- [ ] `npm run build` passes, `npm run preview` checked
+- [ ] No credentials or local config in the diff
+- [ ] Russian text proofread
+- [ ] `public/sitemap.xml` lastmod bumped if content changed
+
+See **SETUP.md** for details.
