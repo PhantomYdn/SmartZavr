@@ -13,7 +13,7 @@ Live at https://smartzavr.ru, deployed from GitHub `main` to a dedicated nginx s
 - Yandex Metrika counter with conversion goals; Yandex Direct campaign material in `docs/`
 - SEO: meta, Open Graph, JSON-LD EducationalOrganization, robots.txt, sitemap.xml, canonical
 - Favicon set, web manifest, WebP hero with PNG fallback
-- Build pipeline: Vite, Tailwind CSS-first theme in `src/style.css`, GitHub Actions preview to GitHub Pages
+- Build pipeline: Vite, Tailwind CSS-first theme in `src/style.css`, multi-stage Dockerfile for production, GitHub Actions preview to GitHub Pages
 - Dependencies current, `npm audit` clean (2026-11-05)
 
 ## Structure
@@ -26,6 +26,7 @@ SmartZavrSimple/
 │   ├── style.css          # Tailwind + @theme
 │   └── assets/            # Hashed images
 ├── public/                # Fixed-URL files: favicons, manifest, logo, robots, sitemap
+├── Dockerfile             # Production image (build + nginx)
 ├── .github/workflows/     # Pages preview build
 ├── docs/                  # Yandex Direct campaign
 ├── input-graphics/        # Source artwork

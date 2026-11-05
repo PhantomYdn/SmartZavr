@@ -19,7 +19,7 @@ npm run preview  # serves dist/ on http://localhost:4173
 
 ## Deployment
 
-Production for https://smartzavr.ru is a server running nginx that deploys from the GitHub repository (`origin`, `PhantomYdn/SmartZavr`, branch `main`). Every push to `main` is a release: the server pulls `main`, runs `npm run build`, and swaps in the new `dist/` only if the build succeeds. That hook lives on the server, not in this repository. Vite 8 needs Node 20.19+ or 22.12+ there (`.nvmrc` says 24).
+Production for https://smartzavr.ru is a server running nginx that deploys from the GitHub repository (`origin`, `PhantomYdn/SmartZavr`, branch `main`). Every push to `main` is a release: the server pulls `main`, runs `docker build` with the `Dockerfile` (Node 24 build stage, nginx serving `dist/`), and deploys the image only if the build succeeds. The pull-and-deploy hook lives on the server, not in this repository.
 
 Before pushing to `main`:
 
@@ -39,7 +39,16 @@ The same push runs `.github/workflows/static.yml`, which builds `dist/` with `--
 
 Keep `origin/main` and `upstream/main` on the same commit.
 
-### nginx reference
+### Docker
+
+```bash
+docker build -t smartzavr .
+docker run --rm -p 8080:80 smartzavr   # http://localhost:8080
+```
+
+The image is what production runs. nginx inside the container uses its default config; TLS, HSTS and caching headers belong to the reverse proxy on the server.
+
+### nginx reference (reverse proxy or bare host)
 
 ```nginx
 server {

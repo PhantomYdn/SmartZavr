@@ -31,6 +31,7 @@ public/             # Copied to dist/ as-is, stable URLs
 ├── robots.txt
 └── sitemap.xml
 
+Dockerfile                     # Production image: Node 24 build stage + nginx serving dist/
 .github/workflows/static.yml   # GitHub Pages preview build
 dist/                          # Build output (gitignored)
 input-graphics/                # Original artwork, not shipped
@@ -53,4 +54,4 @@ input-graphics/                # Original artwork, not shipped
 
 ## Deployment
 
-Push to `main` on GitHub. The production server for smartzavr.ru pulls and builds from there. The same push also publishes a preview at https://phantomydn.github.io/SmartZavr/ via GitHub Actions. Details in `SETUP.md`.
+Push to `main` on GitHub. The production server for smartzavr.ru pulls, runs `docker build` with the Dockerfile, and deploys the image if the build succeeds. The same push also publishes a preview at https://phantomydn.github.io/SmartZavr/ via GitHub Actions. Details in `SETUP.md`.

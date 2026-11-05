@@ -23,6 +23,7 @@ Keep a dev server running in the background during a session so the site can be 
 | `src/style.css` | Tailwind import plus `@theme` tokens (brand colors, fonts) |
 | `src/assets/` | Images that Vite hashes (hero character) |
 | `public/` | Files served at a fixed URL: favicons, `site.webmanifest`, `logo.png`, `robots.txt`, `sitemap.xml` |
+| `Dockerfile` | What production builds: Node 24 build stage, nginx serving `dist/` |
 | `.github/workflows/static.yml` | Builds `dist/` and publishes a GitHub Pages preview |
 | `input-graphics/` | Original artwork, not shipped |
 
@@ -31,7 +32,7 @@ Documentation: `README.md` (business goals, design system, TODO), `SETUP.md` (de
 ## Rules
 
 - **The GitHub repository is public.** Never commit credentials, tokens, `.http` scratch files or machine-specific config. `.mcp.json` and `.claude/settings.local.json` are ignored on purpose.
-- Production (smartzavr.ru) deploys from GitHub `main`. Treat every push to `main` as a release: build locally first, check `npm audit`.
+- Production (smartzavr.ru) deploys from GitHub `main`: the server pulls, runs `docker build`, deploys on success. Treat every push to `main` as a release: `npm run build` and `docker build` locally first, check `npm audit`.
 - Anything that needs a stable URL (favicon, manifest, logo referenced from JSON-LD or og:image) goes in `public/`, not `src/assets/`.
 - Brand colors and fonts live only in the `@theme` block of `src/style.css`.
 - Update the TODO list in `README.md` when finishing a task.

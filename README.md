@@ -255,7 +255,7 @@ Needed:
 - [x] ~~Forms: Google Apps Script backend~~
 - [x] ~~Analytics: Yandex Metrika with conversion goals~~
 - [x] ~~Deploy: nginx server, HTTPS, deploys from GitHub main~~
-- [x] ~~Migrate to Vite + Tailwind CSS v4~~ (Dockerfile retired)
+- [x] ~~Migrate to Vite + Tailwind CSS v4~~ (Dockerfile now multi-stage: build + nginx)
 - [x] ~~True-up 2026-11-05: dependencies current, audit clean, favicon/manifest/logo URLs fixed, docs updated~~
 - [ ] Submit to Yandex Webmaster and Google Search Console (status unknown)
 - [ ] Smaller PNG fallback for the hero image
